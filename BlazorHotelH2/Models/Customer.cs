@@ -4,7 +4,7 @@
     {
         public string customerName { get; set; }
         public string address { get; set; }
-        public List<string> bookings { get; set; }
+        public List<Booking> bookings { get; set; }
         public string creditCardInfo { get; set; }
         public int personCount { get; set; }
     }
