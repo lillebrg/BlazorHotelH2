@@ -1,7 +1,11 @@
-﻿namespace BlazorHotelH2.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BlazorHotelH2.Models
 {
-    public class Administrator : User
+    public class Administrator
     {
-        public string adminName { get; set; }
+        [Key]
+        public int adminId { get; set; }
+        public string adminName { get; set; } = null!;
     }
 }

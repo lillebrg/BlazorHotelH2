@@ -1,11 +1,15 @@
-﻿namespace BlazorHotelH2.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BlazorHotelH2.Models
 {
-    public class Customer : User
+    public class Customer
     {
-        public string customerName { get; set; }
-        public string address { get; set; }
-        public List<Booking> bookings { get; set; }
-        public string creditCardInfo { get; set; }
+        [Key]
+        public int customerId { get; set; }
+        public string customerName { get; set; } = null!;
+        public string address { get; set; } = null!;
+        public List<Booking>? bookings { get; set; }
+        public string creditCardInfo { get; set; } = null!;
         public int personCount { get; set; }
     }
 }
