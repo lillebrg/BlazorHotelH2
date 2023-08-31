@@ -9,7 +9,7 @@ namespace BlazorHotelH2.Data
     {
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<Administrator> Administrators { get; set; } = null!;
-        public DbSet<Customer> Customers { get; set; } = null!;
+        public DbSet<Customer> Customers { get; set; } = null!; 
         public DbSet<Booking> Bookings { get; set; } = null!;
         public DbSet<Room> Rooms { get; set; } = null!;
         public DbSet<Picture> Pictures { get; set; }
