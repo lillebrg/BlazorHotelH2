@@ -9,8 +9,8 @@ namespace BlazorHotelH2.Models
         public string userName { get; set; } = null!;
         public string password { get; set; } = null!;
         public string email { get; set; } = null!;
-        public Administrator administrators { get; set; }
-        public Customer customers { get; set; }
+        public Administrator? administrators { get; set; }
+        public Customer? customers { get; set; }
 
         //lav liste af customer og admins i stedet for parent child class
     }
