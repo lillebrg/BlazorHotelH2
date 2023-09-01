@@ -10,7 +10,7 @@ namespace TestProject
         public void TestMethod1()
         {
             HotelH2Context DBcontext = new HotelH2Context();
-            //hello
+
             User user1 = new User()
             {
                 userName = "testuser",
