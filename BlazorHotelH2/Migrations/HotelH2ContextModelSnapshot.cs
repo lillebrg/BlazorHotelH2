@@ -34,12 +34,7 @@ namespace BlazorHotelH2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("userId")
-                        .HasColumnType("int");
-
                     b.HasKey("adminId");
-
-                    b.HasIndex("userId");
 
                     b.ToTable("Administrators");
                 });
@@ -91,12 +86,7 @@ namespace BlazorHotelH2.Migrations
                     b.Property<int>("personCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("userId")
-                        .HasColumnType("int");
-
                     b.HasKey("customerId");
-
-                    b.HasIndex("userId");
 
                     b.ToTable("Customers");
                 });
@@ -161,6 +151,12 @@ namespace BlazorHotelH2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("userId"));
 
+                    b.Property<int>("administratorsadminId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("customerscustomerId")
+                        .HasColumnType("int");
+
                     b.Property<string>("email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -175,14 +171,11 @@ namespace BlazorHotelH2.Migrations
 
                     b.HasKey("userId");
 
-                    b.ToTable("Users");
-                });
+                    b.HasIndex("administratorsadminId");
 
-            modelBuilder.Entity("BlazorHotelH2.Models.Administrator", b =>
-                {
-                    b.HasOne("BlazorHotelH2.Models.User", null)
-                        .WithMany("administrators")
-                        .HasForeignKey("userId");
+                    b.HasIndex("customerscustomerId");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("BlazorHotelH2.Models.Booking", b =>
@@ -192,18 +185,30 @@ namespace BlazorHotelH2.Migrations
                         .HasForeignKey("customerId");
                 });
 
-            modelBuilder.Entity("BlazorHotelH2.Models.Customer", b =>
-                {
-                    b.HasOne("BlazorHotelH2.Models.User", null)
-                        .WithMany("customers")
-                        .HasForeignKey("userId");
-                });
-
             modelBuilder.Entity("BlazorHotelH2.Models.Picture", b =>
                 {
                     b.HasOne("BlazorHotelH2.Models.Room", null)
                         .WithMany("pictures")
                         .HasForeignKey("roomId");
+                });
+
+            modelBuilder.Entity("BlazorHotelH2.Models.User", b =>
+                {
+                    b.HasOne("BlazorHotelH2.Models.Administrator", "administrators")
+                        .WithMany()
+                        .HasForeignKey("administratorsadminId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BlazorHotelH2.Models.Customer", "customers")
+                        .WithMany()
+                        .HasForeignKey("customerscustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("administrators");
+
+                    b.Navigation("customers");
                 });
 
             modelBuilder.Entity("BlazorHotelH2.Models.Customer", b =>
@@ -214,13 +219,6 @@ namespace BlazorHotelH2.Migrations
             modelBuilder.Entity("BlazorHotelH2.Models.Room", b =>
                 {
                     b.Navigation("pictures");
-                });
-
-            modelBuilder.Entity("BlazorHotelH2.Models.User", b =>
-                {
-                    b.Navigation("administrators");
-
-                    b.Navigation("customers");
                 });
 #pragma warning restore 612, 618
         }
