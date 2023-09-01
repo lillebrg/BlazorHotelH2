@@ -18,7 +18,8 @@ namespace BlazorHotelH2.Pages
 
                 //list skal være spicifik med hvad user indeholder(mangler adminid og customerid i users...)
                 List<string> users = new List<string>();
-                users = query.ToList();
+                //users = query.ToList();
+                Console.WriteLine("we in the query");
             }
 
         }
