@@ -1,0 +1,13 @@
+﻿@inherits MessageBox
+
+@{
+    base.BuildRenderTree(__builder);
+}
+
+@code{
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        DefaultClass = "bg-danger text-white";
+    }
+}
