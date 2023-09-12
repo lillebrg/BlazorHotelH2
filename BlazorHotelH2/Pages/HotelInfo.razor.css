@@ -1,0 +1,33 @@
+﻿body 
+{
+
+}
+
+.button 
+{
+    display: inline-block;
+    padding: 6px 12px;
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    color: #ffffff; /* Change this to your desired text color */
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.button:hover 
+{
+    background-color: #0056b3; /* Change this to your desired hover color */
+    transform: scale(0.9); /* Optional: Add a slight scale effect on hover */
+}
+
+/* Active/focus effect */
+.button:focus,
+.button:active 
+{
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional: Add a box-shadow on focus/active */
+}

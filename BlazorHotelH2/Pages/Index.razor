@@ -1,19 +1,42 @@
 ﻿@inherits MessageBox
 @page "/"
 
+<link rel="stylesheet" type="text/css" href="Index.razor.css"/>
+
 <PageTitle>Index</PageTitle>
 
 <h1>Hotel H2 Viborg</h1>
 
 <MessageBox 
-    Title="new message"
+    Title="Something"
     Message="Hello"
-    class="text-black"/>
+    class="text-white"/>
+
+<br/>
+
+<MessageBox 
+    Title="new message 2" 
+    Message="Hello 2" 
+    class="text-white"/>
 
 <br />
 
-<MessageBox 
-    Title="new message 2"
-    Message="Hello 2"
-    class="text-black"
-    style="background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%)"/>
+<table class="rows">
+    <tr>
+        <th>
+            <img class="roomImage" src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg" />
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            <img class="roomImage" src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg" />
+        </td>
+   </tr>
+
+    <tr>
+        <th>
+            <img class="roomImage" src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg" />
+        </th>
+    </tr>
+</table>
