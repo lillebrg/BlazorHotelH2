@@ -1,4 +1,4 @@
-﻿<div class="card @DefaultClass @Class" style="width: 20rem;">
+﻿<div class="card @DefaultClass @Class" style="width: 100rem;">
     <div class="card-body">
         <h5 class="card-title fw-bold">Title</h5>
         <p class="card-text">@Message</p>
@@ -14,6 +14,9 @@
 
     [Parameter]
     public string Class { get; set; } = "";
+
+    [Parameter]
+    public string style { get; set; } = "";
 
     protected string DefaultClass { get; set; } = "";
 }
