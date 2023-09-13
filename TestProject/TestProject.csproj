@@ -20,7 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorHotelH2\BlazorHotelH2.csproj" />
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
+    <ProjectReference Include="..\DomainModels\DomainModels.csproj" />
   </ItemGroup>
 
 </Project>
