@@ -47,7 +47,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("DomainModels.Admin", b =>
@@ -76,7 +76,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Admins");
+                    b.ToTable("Admins", (string)null);
                 });
 
             modelBuilder.Entity("DomainModels.Booking", b =>
@@ -100,7 +100,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Bookings");
+                    b.ToTable("Bookings", (string)null);
                 });
 
             modelBuilder.Entity("DomainModels.CreditCardInfo", b =>
@@ -123,7 +123,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CreditCardInfo");
+                    b.ToTable("CreditCardInfo", (string)null);
                 });
 
             modelBuilder.Entity("DomainModels.Customer", b =>
@@ -165,7 +165,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("CreditCardInfoId");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customer", (string)null);
                 });
 
             modelBuilder.Entity("DomainModels.Picture", b =>
@@ -187,7 +187,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("Picture");
+                    b.ToTable("Picture", (string)null);
                 });
 
             modelBuilder.Entity("DomainModels.Room", b =>
@@ -213,7 +213,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Room");
+                    b.ToTable("Room", (string)null);
                 });
 
             modelBuilder.Entity("DomainModels.Booking", b =>
