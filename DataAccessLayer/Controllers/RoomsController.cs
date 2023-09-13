@@ -16,9 +16,9 @@ namespace DataAccessLayer.Controllers
     {
         private readonly HotelContext _context;
 
-        public RoomsController(HotelContext context)
+        public RoomsController()
         {
-            _context = context;
+            _context = new HotelContext();
         }
 
         // GET: api/Rooms
