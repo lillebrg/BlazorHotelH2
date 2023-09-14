@@ -1,24 +1,21 @@
 ﻿using BlazorHotelH2.Services;
-using DomainModels;
+using Microsoft.AspNetCore.Components;
 
 namespace BlazorHotelH2.Pages
 {
     partial class RoomListComponent
     {
-        private RoomService roomService;
-        public RoomListComponent()
-        {
-            roomService = new RoomService();
-        }
-        public List<Room> AllRooms { get; set; }
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {  
-                AllRooms = await roomService.GetAllRoomsAsync();
-                StateHasChanged();
-            }
-        }
+        [Parameter]
+        public string FrontPicture { get; set; }
+        [Parameter]
+        public string RoomType { get; set; }
+        [Parameter]
+        public int Price { get; set; }
+        [Parameter]
+        public bool VacancyToday { get; set; }
+        [Parameter]
+        public int MaxPeople { get; set; }
+
     }
 }
 

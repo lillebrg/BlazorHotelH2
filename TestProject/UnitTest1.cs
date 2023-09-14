@@ -13,7 +13,7 @@ namespace TestProject
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestAddCustomers()
         {
             HotelContext HotelContext = new HotelContext();
             for (int i = 0; i < 35; i++)
@@ -47,6 +47,26 @@ namespace TestProject
             int result = HotelContext.SaveChanges();
             //Checks if the test ran as expected(if the test produces 34 entries but still works, this assert will tell you)
             Assert.AreEqual(35, result);
+        }
+
+        [TestMethod]
+        public void TestAddAdmins()
+        {
+            HotelContext HotelContext = new HotelContext();
+            for (int i = 0; i < 5; i++)
+            {
+                Admin admin = new Admin()
+                {
+                    UserName = $"AdminNr.{i}",
+                    Email = $"Admin{i}@Hotelh2.com",
+                    Password = $"Admin{i}",
+                    PhoneNumber = $"{i+2}{i}{i+2}{i+2}{i}{i+2}{i}{1+i}",
+                };
+                HotelContext.Admins.Add(admin);
+            }
+            int result = HotelContext.SaveChanges();
+            //Checks if the test ran as expected(if the test produces 34 entries but still works, this assert will tell you)
+            Assert.AreEqual(5, result);
         }
 
         [TestMethod]
