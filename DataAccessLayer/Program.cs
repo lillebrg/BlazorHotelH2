@@ -10,11 +10,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString = builder.Configuration.GetConnectionString("HotelH2DB");
-builder.Services.AddDbContext<HotelContext>(options =>
-{
-    options.UseSqlServer(connectionString);
-});
+//var connectionString = builder.Configuration.GetConnectionString("HotelH2DB");
+//builder.Services.AddDbContext<HotelContext>(options =>
+//{
+//    options.UseSqlServer(connectionString);
+//});
 
 var app = builder.Build();
 

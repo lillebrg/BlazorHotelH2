@@ -7,6 +7,6 @@
         public int Price { get; set; }
         public bool VacancyToday { get; set; }
         public int MaxPeople { get; set; }
-        public List<Picture> Pictures { get; set; }
+        public List<Picture>? Pictures { get; set; }
     }
 }

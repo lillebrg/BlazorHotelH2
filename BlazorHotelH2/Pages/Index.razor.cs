@@ -1,24 +1,24 @@
 ﻿
+using BlazorHotelH2.Services;
+using DomainModels;
+
 namespace BlazorHotelH2.Pages
 {
     public partial class Index
     {
+        private RoomService roomService;
+        public Index()
+        {
+            roomService = new RoomService();
+        }
+        public List<Room> AllRooms { get; set; } = new List<Room>();
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
-                Console.WriteLine("inside if");
+                AllRooms = await roomService.GetAllRoomsAsync();
+                StateHasChanged();
             }
-            Console.WriteLine("outside if");
-            //using (HotelH2Context context = new HotelH2Context())
-            //{
-            //    //var query = context.Users;
-
-            //    //list skal være spicifik med hvad user indeholder(mangler adminid og customerid i users...)
-            //    List<string> users = new List<string>();
-            //    //users = query.ToList();
-            //}
-
         }
     }
 }
