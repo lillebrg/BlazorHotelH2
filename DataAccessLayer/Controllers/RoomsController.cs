@@ -25,11 +25,16 @@ namespace DataAccessLayer.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Room>>> GetRoom()
         {
-          if (_context.Room == null)
-          {
-              return NotFound();
-          }
-            return await _context.Room.ToListAsync();
+            var roomsWithPictures = await _context.Room
+                .Include(r => r.Pictures)
+                .ToListAsync();
+
+            if (roomsWithPictures == null)
+            {
+                return NotFound();
+            }
+
+            return roomsWithPictures;
         }
 
         // GET: api/Rooms/5

@@ -3,6 +3,11 @@
 <PageTitle>Rooms</PageTitle>
 
 <h1 class="PageTitle">Hotel H2 Rooms</h1>
+@for (int i = 0; i < AllRooms.Count; i++)
+{
+    <RoomListComponent Room="@AllRooms[i]"/>
+}
+
 
 <div class="nav-item px-4">
     <a class="button" href="RoomsInfo"> Rooms info </a>
