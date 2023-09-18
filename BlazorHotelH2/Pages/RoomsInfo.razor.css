@@ -29,19 +29,33 @@
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional: Add a box-shadow on focus/active */
 }
 
-
-.roomImage 
-{
+.roomImage {
     width: 250px;
     height: 125px;
 }
 
-.rows 
-{
-    margin-bottom: 20px
+.containerCard {
+    padding: 2px !important;
 }
 
-img 
+.container {
+    width: auto;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.PageTitle {
+    text-align: center;
+    padding: 10px;
+}
+
+.Border 
 {
-    margin-bottom: 30px;
+    padding: 0 0 10px 0;
 }

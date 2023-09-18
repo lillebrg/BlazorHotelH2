@@ -1,19 +1,14 @@
 ﻿body 
 {
+
 }
 
-.roomImage 
-{
-    width: 250px;
-    height: 125px;
-}
-
-.containerCard
+.containerCard 
 {
     padding: 2px !important;
 }
 
-.container
+.container 
 {
     width: auto;
 }
@@ -27,7 +22,7 @@ footer
     text-align: center;
 }
 
-.PageTitle
+.PageTitle 
 {
     text-align: center;
     padding: 10px;

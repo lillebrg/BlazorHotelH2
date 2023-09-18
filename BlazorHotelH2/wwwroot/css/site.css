@@ -63,7 +63,21 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
-
-.card {
+/*  */
+.card 
+{
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.PageTitle {
+    text-align: center;
+    padding: 10px;
 }

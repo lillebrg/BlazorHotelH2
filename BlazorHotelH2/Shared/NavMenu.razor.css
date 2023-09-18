@@ -90,6 +90,11 @@
     color: white;
 }
 
+.navLogin 
+{
+    display: block;
+}
+
 @media (min-width: 641px) 
 {
     .navbar-toggler 
@@ -102,9 +107,9 @@
         /* Never collapse the sidebar for wide screens */
         display: block;
     }
-}
 
-.navLogin
-{
-
+    .navLogin
+    {
+        display: none;
+    }
 }
