@@ -3,8 +3,25 @@
 
 <PageTitle>Login</PageTitle>
 
-<h1 class="PageTitle">Login Page</h1>
+<body>
+    <div class="container ">
+        <h1>Sign Up</h1>
+        <form id="signup-form" action="#" method="post">
+            <input type="text" id="signup-firstName" name="signup-firstName" placeholder="First Name" required>
+            <input type="text" id="signup-lastName" name="signup-lastName" placeholder="Last Name" required>
+            <input type="password" id="signup-password" name="signup-password" placeholder="Password" required>
+            <input type="password" id="signup-confirm-password" name="signup-confirm-password" placeholder="Confirm Password" required>
+            <input type="text" id="signup-mail" name="signup-mail" placeholder="Email" required>
+            <input type="submit" value="Sign Up">
+            <p class="error-message" id="signup-error"></p>
+        </form>
 
-@code {
+        <div class="top-row px-4">
+            <a class="button" href="LoginUser">Login User</a> <a class="button" href="LoginAdmin">Login Admin</a>
+        </div>
+    </div>
+</body>
 
-}
+<footer class="bg-dark text-center text-lg-start">
+    <p> Fuck this </p>
+</footer>
