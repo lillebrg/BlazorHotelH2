@@ -1,0 +1,24 @@
+﻿@inherits MessageBox
+@page "/loginAdmin"
+
+<PageTitle>Login</PageTitle>
+
+<body>
+    <div class="container ">
+        <h1>Login Admin</h1>
+        <form id="login-form" action="#" method="post">
+            <input type="text" id="login-mail" name="login-mail" placeholder="Email" required>
+            <input type="password" id="login-password" name="login-password" placeholder="Password" required>
+            <input type="submit" value="Login">
+            <p class="error-message" id="login-error"></p>
+        </form>
+
+        <div class="top-row px-4">
+            <a class="button" href="LoginUser">Login User</a> <a class="button" href="LoginAdmin">Login Admin</a>
+        </div>
+    </div>
+</body>
+
+<footer class="bg-dark text-center text-lg-start">
+    <p> Fuck this </p>
+</footer>
