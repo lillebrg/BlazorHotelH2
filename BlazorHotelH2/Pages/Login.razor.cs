@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using DomainModels;
+using Microsoft.AspNetCore.Components;
 
 namespace BlazorHotelH2.Pages
 {
@@ -6,5 +7,12 @@ namespace BlazorHotelH2.Pages
     {
         [Parameter]
         public string SignupfirstName { get; set; }
+
+        public Customer customer = new Customer();
+
+        public void SubmitForm()
+        {
+
+        }
     }
 }

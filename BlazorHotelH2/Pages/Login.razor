@@ -8,12 +8,11 @@
     <div class="container form">
         <h1>Sign Up</h1>
         <EditForm Model="@customer" OnValidSubmit="SubmitForm">
+            <DataAnnotationsValidator />
 
-            <label> First Name </label>
-            <InputText @bind-Value="customer.FirstName" placeholder="First Name" required />
+            <label> User Name </label>
+            <InputText @bind-Value="customer.UserName" placeholder="First Name" required />
 
-            <label> Last Name </label>
-            <InputText @bind-Value="customer.LastName" placeholder="Last Name" required />
 
             <label> Password </label>
             <InputText @bind-Value="customer.Password" placeholder="Password" required />
@@ -29,16 +28,6 @@
 
             <p class="error-message" id="signup-error"></p>
         </EditForm>
-
-        @code
-        {
-            public Customer customer = new Customer();
-
-            private async Task SubmitForm()
-            {
-
-            }
-         }
 
         <div class="top-row px-4">
             <a class="button" href="LoginUser">Login User</a> <a class="button" href="LoginAdmin">Login Admin</a>
