@@ -1,0 +1,14 @@
+﻿
+<div class="slideshow-container">
+
+    @for (int i = 0; i < Pictures.Count; i++)
+    {
+        <div class="mySlides fade">
+            
+            <div class="numbertext">@i / @Pictures.Count</div>
+            <img src="@Pictures[i].PictureURL" class="imgSize">
+        </div>
+    }
+    <a class="prev" @onclick="() => PlusSlides(-1)">❮</a>
+    <a class="next" @onclick="() => PlusSlides(1)">❯</a>
+</div>
