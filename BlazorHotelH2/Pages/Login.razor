@@ -1,20 +1,44 @@
-﻿@inherits MessageBox
+﻿@using DomainModels
+@inherits MessageBox
 @page "/login"
 
 <PageTitle>Login</PageTitle>
 
 <body>
-    <div class="container ">
+    <div class="container form">
         <h1>Sign Up</h1>
-        <form id="signup-form" action="#" method="post">
-            <input type="text" id="signup-firstName" name="signup-firstName" placeholder="First Name" required>
-            <input type="text" id="signup-lastName" name="signup-lastName" placeholder="Last Name" required>
-            <input type="password" id="signup-password" name="signup-password" placeholder="Password" required>
-            <input type="password" id="signup-confirm-password" name="signup-confirm-password" placeholder="Confirm Password" required>
-            <input type="text" id="signup-mail" name="signup-mail" placeholder="Email" required>
-            <input type="submit" value="Sign Up">
+        <EditForm Model="@customer" OnValidSubmit="SubmitForm">
+
+            <label> First Name </label>
+            <InputText @bind-Value="customer.FirstName" placeholder="First Name" required />
+
+            <label> Last Name </label>
+            <InputText @bind-Value="customer.LastName" placeholder="Last Name" required />
+
+            <label> Password </label>
+            <InputText @bind-Value="customer.Password" placeholder="Password" required />
+            <InputText @bind-Value="customer.Password" placeholder="Confirm Password" required />
+
+            <label> Email </label>
+            <InputText @bind-Value="customer.Email" placeholder="Email" required />
+
+            <label> Phone number </label>
+            <InputText @bind-Value="customer.PhoneNumber" placeholder="Phone number" required />
+            
+            <input type="submit" value="Sign Up"/>
+
             <p class="error-message" id="signup-error"></p>
-        </form>
+        </EditForm>
+
+        @code
+        {
+            public Customer customer = new Customer();
+
+            private async Task SubmitForm()
+            {
+
+            }
+         }
 
         <div class="top-row px-4">
             <a class="button" href="LoginUser">Login User</a> <a class="button" href="LoginAdmin">Login Admin</a>

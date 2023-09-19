@@ -22,10 +22,9 @@ h2
     margin-bottom: 20px;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="submit"] 
-{
+InputText[type="form"],
+InputText[type="password"],
+input[type="submit"] {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
