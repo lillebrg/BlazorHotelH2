@@ -26,7 +26,5 @@ namespace BlazorHotelH2.Pages
         {
             await module.InvokeVoidAsync("plusSlides", n);
         }
-        
-
     }
 }
