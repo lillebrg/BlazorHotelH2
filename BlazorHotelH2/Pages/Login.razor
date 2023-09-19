@@ -5,42 +5,38 @@
 <PageTitle>Login</PageTitle>
 
 <body>
-    <div class="container">
+    <div class="container form">
         <h1>Sign Up</h1>
         <EditForm Model="@customer" OnValidSubmit="SubmitForm">
 
             <label> First Name </label>
-            <InputText @bind-Value="customer.FirstName" type="form" id="signup-firstName" placeholder="First Name" required />
+            <InputText @bind-Value="customer.FirstName" placeholder="First Name" required />
 
             <label> Last Name </label>
-            <InputText @bind-Value="customer.LastName" id="signup-lastName" placeholder="Last Name" required />
+            <InputText @bind-Value="customer.LastName" placeholder="Last Name" required />
 
             <label> Password </label>
-            <InputText @bind-Value="customer.Password" id="signup-password" placeholder="Password" required />
-            <InputText @bind-Value="customer.Password" id="signup-password" placeholder="Confirm Password" required />
+            <InputText @bind-Value="customer.Password" placeholder="Password" required />
+            <InputText @bind-Value="customer.Password" placeholder="Confirm Password" required />
 
             <label> Email </label>
-            <InputText @bind-Value="customer.Email" id="signup-email" placeholder="Email" required />
+            <InputText @bind-Value="customer.Email" placeholder="Email" required />
 
             <label> Phone number </label>
-            <InputText @bind-Value="customer.PhoneNumber" id="signup-phoneNumber" placeholder="Phone number" required />
+            <InputText @bind-Value="customer.PhoneNumber" placeholder="Phone number" required />
             
             <input type="submit" value="Sign Up"/>
-
-
 
             <p class="error-message" id="signup-error"></p>
         </EditForm>
 
-        @*@inject Data.AppDbContext dbContext*@
         @code
         {
             public Customer customer = new Customer();
 
             private async Task SubmitForm()
             {
-                 @*dbContext.customer.Add(newCustomer);
-        await dbContext.SaveChangesAsync();*@
+
             }
          }
 
