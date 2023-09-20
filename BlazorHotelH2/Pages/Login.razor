@@ -8,6 +8,7 @@
         
         <h1>Sign Up</h1>
         <EditForm Model="@customer" OnValidSubmit="SubmitForm">
+            <DataAnnotationsValidator />
 
             <InputText @bind-Value="customer.FirstName" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="First Name" required />
 

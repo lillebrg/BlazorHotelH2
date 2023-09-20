@@ -3,6 +3,8 @@ using BlazorHotelH2.Pages;
 using DomainModels;
 using Newtonsoft.Json;
 using Microsoft.Identity.Client;
+using Microsoft.AspNetCore.Localization;
+using System.Text;
 
 namespace BlazorHotelH2.Services
 {
@@ -10,11 +12,15 @@ namespace BlazorHotelH2.Services
     {
         //string customerApi = https://localhost:7036/api/Customers
 
-        public async Task<bool> PostCustomerAsync()
+        public async Task<bool> PostCustomerAsync(Customer customer)
         {
+            string jsonData = JsonConvert.SerializeObject(customer);
+
             HttpClient customerClient = new HttpClient();
 
             HttpResponseMessage response = new HttpResponseMessage();
+
+            StringContent data = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
             try
             {
@@ -28,11 +34,8 @@ namespace BlazorHotelH2.Services
             }
             catch (Exception)
             {
-
                 return false;
             }
-
-            return false;
         }
     }
 }
