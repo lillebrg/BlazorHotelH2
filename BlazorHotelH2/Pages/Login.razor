@@ -1,29 +1,23 @@
 ﻿@using DomainModels
-@inherits MessageBox
 @page "/login"
 
 <PageTitle>Login</PageTitle>
 
 <body>
-    <div class="container form">
+    <div class="container">
+        
         <h1>Sign Up</h1>
         <EditForm Model="@customer" OnValidSubmit="SubmitForm">
 
-            <label> First Name </label>
-            <InputText @bind-Value="customer.FirstName" placeholder="First Name" required />
+            <InputText @bind-Value="customer.FirstName" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="First Name" required />
 
-            <label> Last Name </label>
-            <InputText @bind-Value="customer.LastName" placeholder="Last Name" required />
+            <InputText @bind-Value="customer.LastName" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Last Name" required />
 
-            <label> Password </label>
-            <InputText @bind-Value="customer.Password" placeholder="Password" required />
-            <InputText @bind-Value="customer.Password" placeholder="Confirm Password" required />
+            <InputText @bind-Value="customer.Password" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Password" required/>
 
-            <label> Email </label>
-            <InputText @bind-Value="customer.Email" placeholder="Email" required />
+            <InputText @bind-Value="customer.Email" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Email" required/>
 
-            <label> Phone number </label>
-            <InputText @bind-Value="customer.PhoneNumber" placeholder="Phone number" required />
+            <InputText @bind-Value="customer.PhoneNumber" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Phone number" required/>
             
             <input type="submit" value="Sign Up"/>
 
@@ -36,16 +30,13 @@
 
             private async Task SubmitForm()
             {
-
+                
             }
          }
 
         <div class="top-row px-4">
             <a class="button" href="LoginUser">Login User</a> <a class="button" href="LoginAdmin">Login Admin</a>
         </div>
+
     </div>
 </body>
-
-<footer class="bg-dark text-center text-lg-start">
-    <p> Fuck this </p>
-</footer>
