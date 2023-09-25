@@ -10,7 +10,7 @@ namespace BlazorHotelH2.Services
 {
     public class CustomerService
     {
-        //string customerApi = https://localhost:7036/api/Customers
+        string customerApi = "https://localhost:7036/api/Customers";
 
         public async Task<bool> PostCustomerAsync(Customer customer)
         {

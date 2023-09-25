@@ -6,6 +6,8 @@ namespace BlazorHotelH2.Pages
     public partial class RoomsInfo
     {
         private RoomService roomService;
+        private bool isElementVisible = true;
+
         public RoomsInfo()
         {
             roomService = new RoomService();
@@ -16,6 +18,7 @@ namespace BlazorHotelH2.Pages
             if (firstRender)
             {
                 AllRooms = await roomService.GetAllRoomsAsync();
+                isElementVisible = !isElementVisible;
                 StateHasChanged();
             }
         }

@@ -1,11 +1,33 @@
-﻿<div>
-
-    <h2 class="FrontPageRoomType">@Room.RoomType</h2>
-    
-    <ImgSlideShowComponent Pictures="@Room.Pictures"/>
-    
-    <h3 class="FrontPagePrice">@Room.Price</h3>
-    
-    <h4>Room for: @Room.MaxPeople</h4>
+﻿<div class="containerCard p-4 card">
+    <div class="VariableBox">
+        <div>
+            <img class="roomImage" src="@Room.Pictures[0].PictureURL" />
+        </div>
+        <div class="TypePriceMaxPeople">
+            <div>
+                <h4 class="items">@Room.RoomType Room</h4>
+            </div>
+            <div>
+                <h5 class="headlines">Price</h5>
+                <p class="items">@Room.Price kr </p>
+            </div>
+            <div>
+                <h5 class="headlines">Room for</h5>
+                <p class="items">@Room.MaxPeople People</p>
+            </div>
+        </div>
+        <div>
+            <div class="VacancyAndButton">
+                <p class="vacancy" style="opacity: @(Room.VacancyToday ? 1 : 0)">
+                    ✨Available Today✨
+                </p>
+                <div class="buttons">
+                    <a class="button" href="room_premium"> Details </a>
+                    <a class="button" href="Booking"> Book! </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 
 </div>

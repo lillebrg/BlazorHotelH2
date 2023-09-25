@@ -9,10 +9,6 @@
         
     <EditForm Model="@customer" OnValidSubmit="@SubmitForm">
 
-        @*<InputText @bind-Value="customer.FirstName" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="FirstName" required/>
-
-        <InputText @bind-Value="customer.LastName" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="LastNAme" required/>*@
-
         <InputText @bind-Value="customer.UserName" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Username" required/>
 
         <InputText @bind-Value="customer.Password" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Password" required/>
@@ -21,7 +17,7 @@
 
         <InputText @bind-Value="customer.PhoneNumber" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Phone number" required/>
 
-        <input type="submit" @onclick="SubmitForm" value="Sign Up">
+        <input type="submit" value="Sign Up">
 
 
         <p class="error-message" id="signup-error"></p>
@@ -34,12 +30,3 @@
 
 </div>
 
-@code
-{
-    public Customer customer = new Customer() {UserName = "fuk", Password = "fei", Email = "fnei", PhoneNumber = "yes"};
-
-    public void SubmitForm()
-    {
-        
-    }
-}

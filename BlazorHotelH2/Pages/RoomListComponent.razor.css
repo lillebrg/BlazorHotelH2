@@ -1,1 +1,55 @@
-﻿
+﻿.containerCard {
+    padding: 2px !important;
+    margin-bottom: 20px;
+}
+.VariableBox {
+    display: flex;
+    justify-content: space-between
+}
+.roomImage{
+    height: 120px;
+    width: 230px;
+}
+.TypePriceMaxPeople{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-around;
+}
+.container {
+    width: auto;
+}
+.card {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+.headlines{
+    color: white;
+    font: bold;
+}
+.items {
+    color: white;
+}
+.VacancyAndButton{
+    width: 160px;
+    height: auto;
+}
+.vacancy {
+    color: white;
+    background-color: green;
+    margin-bottom: 5px;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button {
+    margin-bottom: 5px;
+    width: 150px;
+    text-align: center;
+    color: black;
+    background-image: none;
+    background-color: whitesmoke;
+    border-color: black;
+    border: solid;
+}
