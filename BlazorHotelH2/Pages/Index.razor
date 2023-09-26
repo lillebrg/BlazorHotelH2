@@ -6,6 +6,70 @@
 <h1 class="PageTitle">Hotel H2 Viborg</h1>
 
 
-<body>
-    
-</body>
+<br />
+
+@*<div>
+    <div class="date-picker">
+        <label for="startDate">Start Date:</label>
+        <InputDate id="startDate" @bind-Value="startDate"/>
+
+        <label for="endDate">End Date:</label>
+        <InputDate id="endDate" @bind-Value="endDate"/>
+    </div>
+
+    <div class="guests-picker">
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" @bind="guestCount"/>
+    </div>
+</div>*@
+
+@*@code 
+{
+    private int guestCount = 1;
+    private DateTime startDate = DateTime.Today;
+    private DateTime endDate = DateTime.Today.AddDays(1);
+
+    private void HandleDateChange(DateTime newStartDate, DateTime newEndDate)
+    {
+        if (newStartDate > newEndDate)
+        {
+            // Ensure that the start date is before or equal to the end date
+            startDate = newStartDate;
+            endDate = newStartDate.AddDays(1);
+        }
+        else
+        {
+            startDate = newStartDate;
+            endDate = newEndDate;
+        }
+    }
+}*@
+
+<br />
+
+<div class="p-4">
+    <div class="row">
+        <div class="card">
+            <MessageBox Title="Activity 1" Message="Golf" class="text-white" />
+            <a class="button" href="">Info</a>
+        </div>
+
+        <div class="card">
+            <MessageBox Title="Activity 2" Message="Winter bathing" class="text-white"/>
+            <a class="button" href="">Info</a>
+        </div>
+
+        <div class="card">
+            <MessageBox Title="Activity 3" Message="Laser tag" class="text-white"/>
+            <a class="button" href="">Info</a>
+        </div>
+    </div>
+</div>
+
+<br />
+
+
+
+<br />
+<br />
+<br />
