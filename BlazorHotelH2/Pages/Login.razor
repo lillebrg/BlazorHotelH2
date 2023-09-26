@@ -1,16 +1,13 @@
-﻿@inherits MessageBox
-@page "/loginAdmin"
+﻿@page "/login"
 
 <PageTitle>Hotel H2</PageTitle>
 
 <body>
     <div class="container ">
         
-        <h1>Login Admin</h1>
+        <h1>Login</h1>
         
         <form id="login-form" action="#" method="post">
-
-            <input type="text" id="login-username" name="login-username" placeholder="Username" required>
             <input type="text" id="login-mail" name="login-mail" placeholder="Email" required>
             <input type="password" id="login-password" name="login-password" placeholder="Password" required>
 
@@ -20,8 +17,9 @@
         
         </form>
 
+        <p style="color: white">or</p>
         <div class="top-row px-4">
-            <a class="button" href="Signup"> Signup </a> <a class="button" href="LoginUser"> Login User </a>
+            <a class="button" href="Signup"> Signup </a>
         </div>
 
     </div>

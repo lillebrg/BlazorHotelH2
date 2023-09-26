@@ -1,0 +1,42 @@
+﻿#container{
+    display: flex;
+}
+.slideshow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slideshow-container {
+    position: relative;
+    display: inline-block;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    z-index: 1;
+}
+
+.arrow-left {
+    left: 0;
+}
+
+.arrow-right {
+    right: 0;
+}
+
+.slideshow-container img {
+    width: 500px;
+    height: 350px;
+}
+
+.slideshow-container:hover .arrow {
+    display: block;
+}

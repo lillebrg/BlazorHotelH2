@@ -1,4 +1,8 @@
-﻿<div class="containerCard p-4 card">
+﻿@inject NavigationManager navigationManager
+@inject Containers.RoomInfoStateContainer RoomInfoStateContainer
+@implements IDisposable
+
+<div class="containerCard p-4 card">
     <div class="VariableBox">
         <div>
             <img class="roomImage" src="@Room.Pictures[0].PictureURL" />
@@ -22,7 +26,7 @@
                     ✨Available Today✨
                 </p>
                 <div class="buttons">
-                    <a class="button" href="room_premium"> Details </a>
+                    <a @onclick="() => HandleButton()" class=" button" href="roominfo"> Details </a>
                     <a class="button" href="Booking"> Book! </a>
                 </div>
             </div>
