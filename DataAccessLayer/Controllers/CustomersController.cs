@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DataAccessLayer.Data;
 using DomainModels;
+using DataAccessLayer.BusinessLogic;
 
 namespace DataAccessLayer.Controllers
 {
@@ -14,70 +15,43 @@ namespace DataAccessLayer.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly HotelContext _context;
+        //seperation of concern
+        private readonly RepoCustomer repoCustomer;
 
-        public CustomersController(HotelContext context)
+        public CustomersController()
         {
-            _context = context;
+            repoCustomer = new RepoCustomer();
         }
-
         // GET: api/Customers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> GetCustomer()
         {
-          if (_context.Customer == null)
-          {
-              return NotFound();
-          }
-            return await _context.Customer.ToListAsync();
+            IEnumerable<Customer> customerList = await repoCustomer.GetCustomerAsync();
+            if (customerList != null)
+            {
+                return Ok(customerList);
+            }
+            return NotFound();
         }
 
         // GET: api/Customers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Customer>> GetCustomer(int id)
         {
-          if (_context.Customer == null)
-          {
-              return NotFound();
-          }
-            var customer = await _context.Customer.FindAsync(id);
-
-            if (customer == null)
+            Customer customer = (Customer)await repoCustomer.GetCustomerAsync(id);
+            if (customer != null)
             {
-                return NotFound();
+                return Ok(customer);
             }
-
-            return customer;
+            return NotFound();
         }
 
-        // PUT: api/Customers/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //PUT: api/Customers/5
+        //To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCustomer(int id, Customer customer)
         {
-            if (id != customer.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(customer).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CustomerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await repoCustomer.PutCustomerAsync(id, customer);
             return NoContent();
         }
 
@@ -86,10 +60,10 @@ namespace DataAccessLayer.Controllers
         [HttpPost]
         public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
-          if (_context.Customer == null)
-          {
-              return Problem("Entity set 'HotelContext.Customer'  is null.");
-          }
+            if (_context.Customer == null)
+            {
+                return Problem("Entity set 'HotelContext.Customer'  is null.");
+            }
             _context.Customer.Add(customer);
             await _context.SaveChangesAsync();
 
@@ -116,9 +90,6 @@ namespace DataAccessLayer.Controllers
             return NoContent();
         }
 
-        private bool CustomerExists(int id)
-        {
-            return (_context.Customer?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+        
     }
 }

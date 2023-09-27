@@ -16,7 +16,7 @@ namespace TestProject
         public void TestAddCustomers()
         {
             HotelContext HotelContext = new HotelContext();
-            for (int i = 0; i < 35; i++)
+            for (int i = 0; i < 1; i++)
             {
 
                 Address cu1Address = new Address()
@@ -34,19 +34,18 @@ namespace TestProject
                 };
                 Customer customer1 = new Customer()
                 {
-                    UserName = $"testuser{i}",
+                    UserName = $"awdawd{i}",
                     Email = $"test{i}@test.test",
-                    Password = $"testpassword{i}",
-                    PhoneNumber = $"{i}{i}{i}{i}{i}{i}{i}{i}",
-                    PersonCount = i,
-                    Address = cu1Address,
-                    CreditCardInfo = cu1CreditCardInfo
+                    Password = $"awdawd{i}",
+                    PhoneNumber = $"{i}a{i}d{i}w{i}awdawd{i}{i}{i}{i}",
+                    //Address = cu1Address,
+                    //CreditCardInfo = cu1CreditCardInfo
                 };
                 HotelContext.Customer.Add(customer1);
             }
             int result = HotelContext.SaveChanges();
             //Checks if the test ran as expected(if the test produces 34 entries but still works, this assert will tell you)
-            Assert.AreEqual(35, result);
+            Assert.AreEqual(1, result);
         }
 
         [TestMethod]

@@ -19,7 +19,7 @@ namespace BlazorHotelH2.Pages
 
                 throw e;
             }
-            
+            Console.WriteLine("done");
         }
 
 }
