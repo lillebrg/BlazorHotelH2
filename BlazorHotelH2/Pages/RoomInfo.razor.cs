@@ -8,7 +8,6 @@ namespace BlazorHotelH2.Pages
     {
         private Room room;
         private int currentIndex = 0;
-        private bool showArrows = false;
 
         private void NextImage()
         {
@@ -18,10 +17,6 @@ namespace BlazorHotelH2.Pages
         private void PreviousImage()
         {
             currentIndex = (currentIndex - 1 + room.Pictures.Count) % room.Pictures.Count;
-        }
-        private void ToggleArrows()
-        {
-            showArrows = !showArrows;
         }
         protected override void OnInitialized()
         {

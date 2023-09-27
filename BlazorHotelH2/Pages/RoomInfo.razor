@@ -13,9 +13,9 @@
         <img src="@room.Pictures[currentIndex].PictureURL" alt="Slideshow Image" />
         <button class="arrow arrow-right" @onclick="NextImage">&gt;</button>
     </div>
-    <div>
-        <h5>@room.Price Kr</h5>
-        <h5>@room.MaxPeople person room</h5>
+    <div class="variables">
+        <h5> Cost per night: @room.Price Kr</h5>
+        <h5>Max people: @room.MaxPeople</h5>
         <h5>availability: @room.VacancyToday</h5>
     </div>
 </div>

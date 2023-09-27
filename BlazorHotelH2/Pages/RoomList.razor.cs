@@ -3,12 +3,12 @@ using DomainModels;
 
 namespace BlazorHotelH2.Pages
 {
-    public partial class RoomsList
+    public partial class RoomList
     {
         private RoomService roomService;
         private bool isElementVisible = true;
 
-        public RoomsList()
+        public RoomList()
         {
             roomService = new RoomService();
         }

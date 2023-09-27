@@ -1,11 +1,13 @@
 ﻿#container{
     display: flex;
 }
+
 .slideshow {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .slideshow-container {
     position: relative;
     display: inline-block;
@@ -39,4 +41,13 @@
 
 .slideshow-container:hover .arrow {
     display: block;
+}
+
+.variables{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    background-color: red;
 }
