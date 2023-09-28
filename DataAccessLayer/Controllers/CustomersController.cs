@@ -60,13 +60,7 @@ namespace DataAccessLayer.Controllers
         [HttpPost]
         public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
-            if (_context.Customer == null)
-            {
-                return Problem("Entity set 'HotelContext.Customer'  is null.");
-            }
-            _context.Customer.Add(customer);
-            await _context.SaveChangesAsync();
-
+            await repoCustomer.PostCustomerAsync(customer);
             return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
         }
 
@@ -74,19 +68,10 @@ namespace DataAccessLayer.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCustomer(int id)
         {
-            if (_context.Customer == null)
+            if (await repoCustomer.DeleteCustomerAsync(id) == null)
             {
                 return NotFound();
-            }
-            var customer = await _context.Customer.FindAsync(id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
-
-            _context.Customer.Remove(customer);
-            await _context.SaveChangesAsync();
-
+            } 
             return NoContent();
         }
 
