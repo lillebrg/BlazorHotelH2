@@ -10,6 +10,7 @@ namespace BlazorHotelH2.Services
 {
     public class CustomerService
     {
+        //remember to change the call method to the specified CRUD operation you want to use
         string customerApi = "https://localhost:7036/api/Customers";
 
         public async Task<bool> PostCustomerAsync(Customer customer)
@@ -24,13 +25,9 @@ namespace BlazorHotelH2.Services
 
             try
             {
-                //response = await customerClient.GetAsync(customerApi);
-                if (!response.IsSuccessStatusCode)
-                {
-                    return false;
-                }
+                response = await customerClient.PostAsync(customerApi, data);
 
-                return true;
+               return response.IsSuccessStatusCode;
             }
             catch (Exception)
             {

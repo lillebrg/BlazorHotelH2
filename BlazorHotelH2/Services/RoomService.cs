@@ -6,6 +6,7 @@ namespace BlazorHotelH2.Services
 {
     public class RoomService
     {
+        //remember to change the call method to the specified CRUD operation you want to use
         string roomApi = "https://localhost:7036/api/Rooms";
 
         public async Task<List<Room>> GetAllRoomsAsync()
