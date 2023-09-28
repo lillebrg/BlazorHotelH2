@@ -1,0 +1,50 @@
+﻿<div class="modal @ModalClass" tabindex="-1" role="dialog" style="display:@ModalDisplay">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Room nr. @Room.Id - Edit</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-group crudInput">
+                    <p class="inputText">Room Number</p>
+                    <input class="inputwidth" type="number" name="editInputRoomId" value="@Room.Id" />
+                </div>
+                <div class="form-group crudInputtickbox">
+                    <p class="inputText">Room Type</p>
+                    <div id="crudInputtickboxbox">
+                        <div class="tickboxdiv">
+                            <p>Standard</p>
+                            <input type="radio" id="STANDARD" name="RoomTypes" value="STANDARD" checked="checked"/>
+                        </div>
+                        <div class="tickboxdiv">
+                            <p>Premium</p>
+                            <input type="radio" id="PREMIUM" name="RoomTypes" value="PREMIUM"/>
+                        </div>
+                        <div class="tickboxdiv">
+                            <p>Deluxe</p>
+                            <input type="radio" id="DELUXE" name="RoomTypes" value="DELUXE"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group crudInput">
+                    <p class="inputText">Max People</p>
+                    <input class="inputwidth" type="number" id="editInputMaxPeople" name="editInputNumber" min="0" max="100" value="@Room.MaxPeople">
+                </div>
+                <div class="form-group crudInput">
+                    <p class="inputText">Price</p>
+                    <input class="inputwidth" type="number" name="editInputPrice" id="editInputPrice" value="@Room.Price"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="() => Close()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@if (ShowBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}

@@ -16,11 +16,8 @@ namespace BlazorHotelH2.Pages
             }
             catch (Exception e)
             {
-
                 throw e;
             }
-            Console.WriteLine("done");
         }
-
     }
 }

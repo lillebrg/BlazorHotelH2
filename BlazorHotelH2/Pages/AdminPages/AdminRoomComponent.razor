@@ -1,0 +1,15 @@
+﻿<AdminRoomEditComponent Room="@Room" @ref="Modal"></AdminRoomEditComponent>
+<tr>
+    <td>@Room.Id</td>
+    <td>@Room.RoomType</td>
+    <td>@Room.MaxPeople</td>
+    <td style="color: @(Room.VacancyToday ? "green" : "red")">
+        @(Room.VacancyToday ? "Available" : "Occupied")
+    </td>
+    <td>@Room.Price</td>
+    <td>
+        <button class="btn btn-primary editRoomBtn" @onclick="() => Modal.Open()">Edit</button>
+        |
+        <button class="btn btn-danger deleteRoomBtn">Delete</button>
+    </td>
+</tr>
