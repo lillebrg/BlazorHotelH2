@@ -22,5 +22,5 @@ namespace BlazorHotelH2.Pages
             
         }
 
-}
+    }
 }
