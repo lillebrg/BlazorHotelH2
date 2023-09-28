@@ -33,11 +33,12 @@ namespace BlazorHotelH2.Services
                     return allRooms;
                 }
             }
+
             catch (Exception)
             {
-
                 return null;
             }
+
             return null;
         }
     }

@@ -29,6 +29,7 @@ namespace BlazorHotelH2.Services
 
                return response.IsSuccessStatusCode;
             }
+
             catch (Exception)
             {
                 return false;
