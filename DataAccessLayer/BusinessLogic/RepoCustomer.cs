@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Controllers;
 using DataAccessLayer.Data;
 using DomainModels;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.BusinessLogic
@@ -50,6 +51,28 @@ namespace DataAccessLayer.BusinessLogic
                     throw;
                 }
             }
+
+            return customer;
+        }
+
+        public async Task<Customer> PostCustomerAsync(Customer customer)
+        {
+            _context.Customer.Add(customer);
+            await _context.SaveChangesAsync();
+
+            return customer;
+        }
+
+        public async Task<Customer> DeleteCustomerAsync(int id)
+        {
+            var customer = await _context.Customer.FindAsync(id);
+            if (customer == null)
+            {
+                return null;
+            }
+
+            _context.Customer.Remove(customer);
+            await _context.SaveChangesAsync();
 
             return customer;
         }
