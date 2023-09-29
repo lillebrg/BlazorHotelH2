@@ -3,10 +3,10 @@ using DomainModels;
 
 namespace BlazorHotelH2.Pages
 {
-    public partial class BookRoom
+    public partial class Book
     {
         public Booking booking = new Booking();
-        public void SubmitBooking()
+        public void SubmitForm()
         {
             BookingService bookingService = new BookingService();
 
