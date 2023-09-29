@@ -8,13 +8,11 @@
     text-align: center;
 }
 
-h1
-{
+h1 {
     color: white;
 }
 
-h2 
-{
+h2 {
     margin-bottom: 20px;
 }
 
@@ -38,7 +36,6 @@ input[type="submit"] {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.error-message 
-{
+.error-message {
     color: red;
 }

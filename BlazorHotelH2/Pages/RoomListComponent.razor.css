@@ -4,7 +4,7 @@
 }
 .VariableBox {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
 }
 .roomImage{
     height: 120px;

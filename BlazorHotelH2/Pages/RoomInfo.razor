@@ -4,8 +4,12 @@
 
 @inject Containers.RoomInfoStateContainer myStateContainer
 
-<a href="roomlist"><p>←back</p></a>
+<a href="roomlist" class="button">Back</a>
+
+<br />
+
 <h3>Room @room.Id - @room.RoomType</h3>
+
 <div id="container">
     
     <div class="slideshow-container">
@@ -13,9 +17,14 @@
         <img src="@room.Pictures[currentIndex].PictureURL" alt="Slideshow Image" />
         <button class="arrow arrow-right" @onclick="NextImage">&gt;</button>
     </div>
+
     <div class="variables">
+        <br />
+        <br />
         <h5> Cost per night: @room.Price Kr</h5>
+        <br />
         <h5>Max people: @room.MaxPeople</h5>
+        <br />
         <h5>availability: @room.VacancyToday</h5>
     </div>
 </div>

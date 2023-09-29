@@ -1,7 +1,9 @@
 .header
 {
     display: flex;
-}.page {
+}
+
+.page {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -48,7 +50,6 @@ main
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional: Add a box-shadow on focus/active */
 }
 
-
 .top-row 
 {
     background-color: rgb(33 37 41);
@@ -89,6 +90,14 @@ main
     }
 }
 
+@media (max-width: 640.98px) 
+{
+    footer:not(.auth)
+    {
+        display: none;
+    }
+}
+
 @media (min-width: 641px) 
 {
     .page 
@@ -125,4 +134,14 @@ main
     padding-left: 0px;
     height: 56px;
     padding-right: 16px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 250px);
+    color: white;
+    text-align: center;
+    height: 56px;
+    background-color: rgb(33 37 41);
 }

@@ -3,6 +3,7 @@
 html, body 
 {
     font-family: Arial, Helvetica, sans-serif;
+    position: relative;
 }
 
 .btn-primary 
@@ -68,16 +69,6 @@ html, body
 .card 
 {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-    height: 50px;
-    background-color: rgb(33 37 41);
 }
 
 .PageTitle {
