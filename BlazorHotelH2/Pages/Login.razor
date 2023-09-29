@@ -1,4 +1,5 @@
 ﻿@page "/login"
+@using DomainModels;
 
 <PageTitle>Hotel H2</PageTitle>
 
@@ -7,22 +8,18 @@
         
         <h1>Login</h1>
         
-@*         <EditForm Model="@customer" OnValidSubmit="@SubmitForm">
-
-            <InputText @bind-Value="customer.UserName" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Username" required />
-
-            <InputText @bind-Value="customer.Password" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Password" required />
+        <EditForm Model="@customer" OnValidSubmit="@SubmitForm">
 
             <InputText @bind-Value="customer.Email" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Email" required />
 
-            <InputText @bind-Value="customer.PhoneNumber" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Phone number" required />
+            <InputText @bind-Value="customer.Password" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Password" required />
 
             <input type="submit" value="Sign Up">
 
 
             <p class="error-message" id="login-error"></p>
 
-        </EditForm> *@
+        </EditForm>
 
             
         
