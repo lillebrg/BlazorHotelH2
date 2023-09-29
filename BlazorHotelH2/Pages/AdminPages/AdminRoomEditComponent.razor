@@ -12,17 +12,24 @@
                 <div class="form-group crudInputtickbox">
                     <p class="inputText">Room Type</p>
                     <div id="crudInputtickboxbox">
+                        @if (Room.RoomType == "STANDARD")
+                        {
+                            
+                        }
+                        <input type="radio" name="roomtypes" value="STANDARD" checked />
+                        <input type="radio" name="roomtypes" value="PREMIUM" />
+                        <input type="radio" name="roomtypes" value="DELUXE" />
                         <div class="tickboxdiv">
                             <p>Standard</p>
-                            <input type="radio" id="STANDARD" name="RoomTypes" value="STANDARD" checked="checked"/>
+                            
                         </div>
                         <div class="tickboxdiv">
                             <p>Premium</p>
-                            <input type="radio" id="PREMIUM" name="RoomTypes" value="PREMIUM"/>
+                            
                         </div>
                         <div class="tickboxdiv">
                             <p>Deluxe</p>
-                            <input type="radio" id="DELUXE" name="RoomTypes" value="DELUXE"/>
+                            
                         </div>
                     </div>
                 </div>
