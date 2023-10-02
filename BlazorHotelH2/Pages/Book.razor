@@ -11,15 +11,13 @@
 
 <div class="container">
     
-    <EditForm Model="@booking" OnValidSubmit="@SubmitBooking">
-              
-        @*<InputText @bind-Value="booking.country" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Number of people">
+    <EditForm Model="@booking" OnValidSubmit="@SubmitForm">
+
+        <InputNumber @bind-Value="booking.Room" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="City" required />
+
+        <InputDate @bind-Value="booking.StartDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="City" required />
         
-        <InputText @bind-Value="booking.city" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Country">
-        *@
-        <InputText @bind-Value="booking.startDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="City">
-        
-        <InputText @bind-Value="booking.endDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" id="startDate" placeholder="Start Date">
+        <InputDate @bind-Value="booking.EndDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Start Date" required />
         
         @*<InputText @bind-Value="booking.people" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" id="endDate" placeholder="End Date">*@
 
@@ -31,7 +29,3 @@
 
 </div>
 
-@code
-{
-    public Booking booking = new Booking();
-}
