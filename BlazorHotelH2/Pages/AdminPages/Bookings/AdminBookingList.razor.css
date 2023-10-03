@@ -1,0 +1,14 @@
+﻿.AdminTable {
+    padding-bottom: 200px;
+}
+
+#imgdiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loadingimg {
+    width: 200px;
+    height: 90px;
+}

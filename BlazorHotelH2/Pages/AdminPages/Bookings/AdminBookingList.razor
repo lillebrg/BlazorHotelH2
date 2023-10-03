@@ -1,0 +1,28 @@
+﻿@page "/adminbookinglist"
+
+<PageTitle>Hotel H2</PageTitle>
+
+
+
+<table class="table AdminTable">
+    <thead>
+        <tr>
+            <th>Booking Id</th>
+            <th>Room Number</th>
+            <th>Arrival</th>
+            <th>Depature</th>
+        </tr>
+    </thead>
+    @if (isElementVisible)
+    {
+        <div id="imgdiv">
+            <img id="loadingimg" src="https://gifdb.com/images/thumbnail/buffering-loading-icon-moving-h9m8b9idk9tpksry.gif">
+        </div>
+    }
+    <tbody>
+        @for (int i = 0; i < AllBookings.Count; i++)
+        {
+            <AdminBookingComponent Room="@AllBookings[i]" />
+        }
+    </tbody>
+</table>

@@ -1,25 +1,24 @@
 ﻿using BlazorHotelH2.Services;
 using DomainModels;
 
-namespace BlazorHotelH2.Pages.AdminPages
+namespace BlazorHotelH2.Pages.AdminPages.Bookings
 {
-    public partial class AdminRoomList
+    public partial class AdminBookingList
     {
-        private RoomService roomService;
+        private BookingService bookingService;
         private bool isElementVisible = true;
-        public AdminRoomList()
+        public AdminBookingList()
         {
-            roomService = new RoomService();
+            bookingService = new BookingService();
         }
-        public List<Room> AllRooms { get; set; } = new List<Room>();
+        public List<Booking> AllBookings { get; set; } = new List<Booking>();
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
-                AllRooms = await roomService.GetAllRoomsAsync();
+                AllBookings = await bookingService.GetAllBookingsAsync();
                 isElementVisible = !isElementVisible;
                 StateHasChanged();
-
             }
         }
     }

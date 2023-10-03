@@ -1,7 +1,7 @@
 ﻿using DomainModels;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorHotelH2.Pages.AdminPages
+namespace BlazorHotelH2.Pages.AdminPages.Rooms
 {
     public partial class AdminRoomComponent
     {

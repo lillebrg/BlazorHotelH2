@@ -1,0 +1,12 @@
+﻿<AdminBookingEditComponent Room="@Booking" @ref="Modal"></AdminBookingEditComponent>
+<tr>
+    <td>@Booking.Id</td>
+    <td>@Booking.Room.Id</td>
+    <td style="color: green">@Booking.StartDate</td>
+    <td style="color: red">@Booking.EndDate</td>
+    <td>
+        <button class="btn btn-primary editRoomBtn" @onclick="() => Modal.Open()">Edit</button>
+        |
+        <button class="btn btn-danger deleteRoomBtn">Delete</button>
+    </td>
+</tr>

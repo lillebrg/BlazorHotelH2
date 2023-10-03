@@ -1,0 +1,22 @@
+﻿@page "/popup"
+@inject NavigationManager NavManager
+<div class="popup-container">
+    <div class="popup-content">
+        <div class="popup-text">@popupText</div>
+    </div>
+</div>
+
+@code {
+    private string popupText = "Account Created!";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(2000); // Wait for 2 seconds
+        NavigateToIndex();
+    }
+
+    private void NavigateToIndex()
+    {
+        NavManager.NavigateTo("/");
+    }
+}

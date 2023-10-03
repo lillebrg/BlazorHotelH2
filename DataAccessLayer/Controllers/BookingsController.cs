@@ -25,11 +25,14 @@ namespace DataAccessLayer.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Booking>>> GetBookings()
         {
-          if (_context.Bookings == null)
+            var bookingsWithRooms = await _context.Bookings
+                .Include(b => b.Room)
+                .ToListAsync();
+          if (bookingsWithRooms == null)
           {
               return NotFound();
           }
-            return await _context.Bookings.ToListAsync();
+            return bookingsWithRooms;
         }
 
         // GET: api/Bookings/5

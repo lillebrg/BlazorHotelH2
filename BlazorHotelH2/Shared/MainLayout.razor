@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@using Containers;
+@using DomainModels;
 @using BlazorHotelH2.Shared.Utilities
 @using BlazorHotelH2.Pages
 
@@ -11,12 +13,9 @@
 
     <main>
         <div class="top-row px-4 header">
-            <a class="button" href="signup">Sign up</a>
-			@code {
-				Login login = new();
-			}
+			
 
-			@if (GlobalUserAuth.UserId != null)
+			@if (customer != null || admin != null)
 			{
 				//<NavLink class="nav-link" href="/" @onclick="() => login.Logout()">
 				<!-- Replace 'login' with the actual @ref name -->
@@ -26,6 +25,7 @@
 
 			else
 			{
+				<a class="button" href="signup">Sign up</a>
 				<NavLink class="nav-link" href="login">
 					<span class="oi oi-person" aria-hidden="true"></span> Log ind
 				</NavLink>

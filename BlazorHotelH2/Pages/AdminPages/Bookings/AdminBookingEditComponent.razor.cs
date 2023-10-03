@@ -1,19 +1,18 @@
 ﻿using DomainModels;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorHotelH2.Pages.AdminPages
+namespace BlazorHotelH2.Pages.AdminPages.Bookings
 {
-    public partial class AdminRoomEditComponent
+    public partial class AdminBookingEditComponent
     {
-
         [Parameter]
-        public Room Room { get; set; }
+        public Booking Booking { get; set; }
         public Guid Guid = Guid.NewGuid();
         public string ModalDisplay = "none;";
         public string ModalClass = "";
-        public string Id = "";
-        public string MaxPeople = "";
-        public string Price = "";
+        public string BId = "";
+        public string RId = "";
+
         public bool ShowBackdrop = false;
 
 
@@ -22,9 +21,8 @@ namespace BlazorHotelH2.Pages.AdminPages
             ModalDisplay = "block;";
             ModalClass = "Show";
             ShowBackdrop = true;
-            Id = Convert.ToString(Room.Id);
-            MaxPeople = Convert.ToString(Room.MaxPeople);
-            Price = Convert.ToString(Room.Price);
+            BId = Convert.ToString(Booking.Id);
+            RId = Convert.ToString(Booking.Room.Id);
             StateHasChanged();
         }
 
@@ -36,9 +34,9 @@ namespace BlazorHotelH2.Pages.AdminPages
             StateHasChanged();
         }
 
-        public void EditRoom()
+        public void EditBooking()
         {
-            Room.Id = Convert.ToInt32(Id);
+            Booking.Id = Convert.ToInt32(BId);
         }
     }
 }
