@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@using BlazorHotelH2.Shared.Utilities
+@using BlazorHotelH2.Pages
 
 <PageTitle>Hotel H2</PageTitle>
 
@@ -10,18 +12,64 @@
     <main>
         <div class="top-row px-4 header">
             <a class="button" href="signup">Sign up</a>
-            <a class="button" href="login">Log in</a>
-        </div>
+			@code {
+				Login login = new();
+			}
 
-            
+			@if (GlobalUserAuth.UserId != null)
+			{
+				//<NavLink class="nav-link" href="/" @onclick="() => login.Logout()">
+				<!-- Replace 'login' with the actual @ref name -->
+				//<span class="oi oi-person" aria-hidden="true"></span> Log ud
+				//</NavLink>
+			}
+
+			else
+			{
+				<NavLink class="nav-link" href="login">
+					<span class="oi oi-person" aria-hidden="true"></span> Log ind
+				</NavLink>
+			}
+        </div>
 
         <article>
             @Body
         </article>
 
         <footer>
-            
+			<div class="container p-4">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+						<h5 class="text-uppercase">Hotel info</h5>
+
+						<p>
+							H.C. Andersvej 10<br>
+							DK-8800 Viborg<br>
+						</p>
+					</div>
+
+					<div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+						<h5 class="text-uppercase">Kontakt info</h5>
+
+						<p>
+							Telefon +45 69 69 69 69<br>
+							Mail info@hotelh2.com<br>
+							CVR.nr. 360420
+						</p>
+					</div>
+
+					<div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+						<h5 class="text-uppercase">Receptionen</h5>
+
+						<p>
+							Check-ind fra kl. 13:00 <br>
+							Check-ud seneste kl. 10:00<br>
+							Receptionen har åben fra 07.00 - 22.00
+						</p>
+					</div>
+
+				</div>
+			</div>
         </footer>
     </main>
-
 </div>

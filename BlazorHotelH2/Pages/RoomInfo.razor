@@ -14,7 +14,9 @@
     
     <div class="slideshow-container">
         <button class="arrow arrow-left" @onclick="PreviousImage">&lt;</button>
-        <img src="@room.Pictures[currentIndex].PictureURL" alt="Slideshow Image" />
+
+        <img src="@room.Pictures[currentIndex].PictureURL" alt="Slideshow Image"/>
+
         <button class="arrow arrow-right" @onclick="NextImage">&gt;</button>
     </div>
 
@@ -28,3 +30,7 @@
         <h5>availability: @room.VacancyToday</h5>
     </div>
 </div>
+
+<br />
+<br />
+<br />

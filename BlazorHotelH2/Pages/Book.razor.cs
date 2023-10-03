@@ -5,14 +5,29 @@ namespace BlazorHotelH2.Pages
 {
     public partial class Book
     {
-        public Booking booking = new Booking();
+        public Input input = new()
+        {
+            inputBooking = new Booking()
+            {
+                Room = new Room(),
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(1)
+            },
+        };
+
+        public class Input
+        {
+            public Booking inputBooking;
+            public uint typeId;
+        }
+
         public void SubmitForm()
         {
             BookingService bookingService = new BookingService();
 
             try
             {
-                bookingService.PostBookingAsync(booking);
+                bookingService.PostBookingAsync(input.inputBooking);
             }
             catch (Exception e)
             {

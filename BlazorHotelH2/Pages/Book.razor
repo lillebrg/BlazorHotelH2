@@ -11,18 +11,23 @@
 
 <div class="container">
     
-    <EditForm Model="@booking" OnValidSubmit="@SubmitForm">
+    <EditForm Model="@input" OnValidSubmit="@SubmitForm">
 
-        <InputNumber @bind-Value="booking.Room" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="City" required />
+        <InputSelect @bind-Value="input.inputBooking.Room" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputSelect>
 
-        <InputDate @bind-Value="booking.StartDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="City" required />
+        <InputDate required min="@DateTime.Now.ToString("yyyy-MM-dd")" @bind-Value="input.inputBooking.StartDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputDate>
         
-        <InputDate @bind-Value="booking.EndDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Start Date" required />
-        <input type="submit" value="Sign Up">
+        <InputDate required min="@DateTime.Now.ToString("yyyy-MM-dd")" @bind-Value="input.inputBooking.EndDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputDate>
+        
+        <input type="submit" value="Book">
 
         <p class="error-message" id="signup-error"></p>
 
     </EditForm>
 
 </div>
+
+<br />
+<br />
+<br />
 

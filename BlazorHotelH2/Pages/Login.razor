@@ -1,33 +1,36 @@
 ﻿@page "/login"
 @using DomainModels;
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager;
 
 <PageTitle>Hotel H2</PageTitle>
 
 <body>
-    <div class="container ">
+    <div class="container">
         
         <h1>Login</h1>
         
-        <EditForm Model="@customer" OnValidSubmit="@SubmitForm">
+        <EditForm Model="@customer">
 
-            <InputText @bind-Value="customer.Email" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Email" required />
+            <InputText @bind-Value="customer.Email" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Email" required></InputText>
 
-            <InputText @bind-Value="customer.Password" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Password" required />
+            <InputText @bind-Value="customer.Password" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Password" required></InputText>
 
-            <input type="submit" value="Sign Up">
+            <input type="submit" value="Login">
 
             <p class="error-message" id="login-error"></p>
 
         </EditForm>
-
-            
-        
-
 
         <p style="color: white">or</p>
         <div class="top-row px-4">
             <a class="button" href="Signup"> Signup </a>
         </div>
 
+        <br />
+        <br />
+        <br />
+
     </div>
 </body>
+
+<button onclick="@HandleLogin"></button>

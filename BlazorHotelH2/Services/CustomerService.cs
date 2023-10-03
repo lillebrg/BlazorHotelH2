@@ -35,5 +35,38 @@ namespace BlazorHotelH2.Services
                 return false;
             }
         }
+
+        public async Task<Customer> GetCustomerEmailAsync(string email, string password)
+        {
+            HttpClient customerClient = new HttpClient();
+
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            Customer customer = new Customer();
+
+            string jsonData = "";
+
+            try
+            {
+                response = await customerClient.GetAsync(customerApi);
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+                jsonData = await response.Content.ReadAsStringAsync();
+                customer = JsonConvert.DeserializeObject<Customer>(jsonData);
+                if (customer != null)
+                {
+                    return customer;
+                }
+            }
+
+            catch (Exception)
+            {
+                return null;
+            }
+
+            return null;
+        }
     }
 }

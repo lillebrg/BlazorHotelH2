@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DataAccessLayer.Data;
 using DomainModels;
 using DataAccessLayer.BusinessLogic;
+using SQLitePCL;
 
 namespace DataAccessLayer.Controllers
 {
@@ -46,9 +47,30 @@ namespace DataAccessLayer.Controllers
             return NotFound();
         }
 
-        //PUT: api/Customers/5
-        //To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		// GET: api/Customers/5
+		[HttpGet("login/{email}/{password}")]
+		public async Task<ActionResult<Customer>> GetCustomerEmail(string email, string password)
+		{
+            var customer = await repoCustomer.GetCustomerAsync();
+			if (customer == null)
+			{
+				return NotFound();
+			}
+
+            customer = customer.Where(item => item.Email == email && item.Password == password);
+            if (customer.Count() != 1 && customer != null)
+            {
+                return NotFound();
+            }
+
+            return customer.First();
+		}
+
+
+
+		//PUT: api/Customers/5
+		//To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutCustomer(int id, Customer customer)
         {
             await repoCustomer.PutCustomerAsync(id, customer);
