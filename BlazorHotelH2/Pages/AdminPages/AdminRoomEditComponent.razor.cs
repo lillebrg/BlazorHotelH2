@@ -11,6 +11,9 @@ namespace BlazorHotelH2.Pages.AdminPages
         public Guid Guid = Guid.NewGuid();
         public string ModalDisplay = "none;";
         public string ModalClass = "";
+        public string Id = "";
+        public string MaxPeople = "";
+        public string Price = "";
         public bool ShowBackdrop = false;
 
 
@@ -19,6 +22,9 @@ namespace BlazorHotelH2.Pages.AdminPages
             ModalDisplay = "block;";
             ModalClass = "Show";
             ShowBackdrop = true;
+            Id = Convert.ToString(Room.Id);
+            MaxPeople = Convert.ToString(Room.MaxPeople);
+            Price = Convert.ToString(Room.Price);
             StateHasChanged();
         }
 
@@ -28,6 +34,11 @@ namespace BlazorHotelH2.Pages.AdminPages
             ModalClass = "";
             ShowBackdrop = false;
             StateHasChanged();
+        }
+
+        public void EditRoom()
+        {
+            Room.Id = Convert.ToInt32(Id);
         }
     }
 }

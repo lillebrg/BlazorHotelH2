@@ -19,6 +19,7 @@ namespace BlazorHotelH2.Pages.AdminPages
                 AllRooms = await roomService.GetAllRoomsAsync();
                 isElementVisible = !isElementVisible;
                 StateHasChanged();
+
             }
         }
     }

@@ -5,46 +5,48 @@
                 <h5 class="modal-title">Room nr. @Room.Id - Edit</h5>
             </div>
             <div class="modal-body">
-                <div class="form-group crudInput">
-                    <p class="inputText">Room Number</p>
-                    <input class="inputwidth" type="number" name="editInputRoomId" value="@Room.Id" />
-                </div>
-                <div class="form-group crudInputtickbox">
-                    <p class="inputText">Room Type</p>
-                    <div id="crudInputtickboxbox">
-                        @if (Room.RoomType == "STANDARD")
-                        {
-                            
-                        }
-                        <input type="radio" name="roomtypes" @bind="@Room.RoomType" />
-                        <input type="radio" name="roomtypes" @bind="@Room.RoomType" />
-                        <input type="radio" name="roomtypes" @bind="@Room.RoomType" />
-
-                        <div class="tickboxdiv">
-                            <p>Standard</p>
-                            
-                        </div>
-                        <div class="tickboxdiv">
-                            <p>Premium</p>
-                            
-                        </div>
-                        <div class="tickboxdiv">
-                            <p>Deluxe</p>
-                            
+                <EditForm Model="@Room" OnInvalidSubmit="@EditRoom">
+                    <div class="form-group crudInput">
+                        <p class="inputText">Room Number</p>
+                        <InputText id="myInteger" @bind-Value="Id" type="number" class="form-control" />
+                    </div>
+                    <div class="form-group crudInputtickbox">
+                        <p class="inputText">Room Type</p>
+                        <div id="crudInputtickboxbox">
+                            <div class="tickboxdiv">
+                                <p>Standard</p>
+                                <InputText type="radio" name="@Room.Id" @bind-Value="Room.RoomType" checked=@(Room.RoomType == "STANDARD"? "checked" : null) />
+                            </div>
+                            <div class="tickboxdiv">
+                                <p>Premium</p>
+                                <InputText type="radio" name="@Room.Id" @bind-Value="Room.RoomType" checked=@(Room.RoomType == "PREMIUM"? "checked" : null) />
+                            </div>
+                            <div class="tickboxdiv">
+                                <p>Deluxe</p>
+                                <InputText type="radio" name="@Room.Id" @bind-Value="Room.RoomType" checked=@(Room.RoomType == "DELUXE"? "checked" : null) />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group crudInput">
-                    <p class="inputText">Max People</p>
-                    <input class="inputwidth" type="number" id="editInputMaxPeople" name="editInputNumber" min="0" max="100" value="@Room.MaxPeople">
-                </div>
-                <div class="form-group crudInput">
-                    <p class="inputText">Price</p>
-                    <input class="inputwidth" type="number" name="editInputPrice" id="editInputPrice" value="@Room.Price"/>
-                </div>
+                    <div class="form-group crudInput">
+                        <p class="inputText">Max People</p>
+                        <InputText class="inputwidth" type="number" id="editInputMaxPeople" name="editInputNumber" min="0" max="100" @bind-Value="MaxPeople"/>
+                    </div>
+                    <div class="form-group crudInput">
+                        <p class="inputText">Price</p>
+                        <InputText class="inputwidth" type="number" name="editInputPrice" id="editInputPrice" @bind-Value="Price" />
+                    </div>
+                    <p>Pictures:</p>
+                    @for (int i = 0; i < Room.Pictures.Count; i++)
+                    {
+                        <div class="form-group crudInput">
+                            <p class="inputText">Picture @(i+1)</p>
+                            <InputText name="editInputPrice" id="@("editInputPrice"+i)" @bind-Value="Room.Pictures[i].PictureURL" />
+                        </div>
+                    }
+                </EditForm>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" @onclick="() => EditRoom()">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="() => Close()">Close</button>
             </div>
         </div>
