@@ -15,14 +15,18 @@
         <div class="top-row px-4 header">
 			
 
-			@if (customer != null || admin != null)
+			@if (customer != null)
 			{
-				//<NavLink class="nav-link" href="/" @onclick="() => login.Logout()">
-				<!-- Replace 'login' with the actual @ref name -->
-				//<span class="oi oi-person" aria-hidden="true"></span> Log ud
-				//</NavLink>
+				<NavLink class="nav-link" href="/" @onclick="() => LogOut()">
+				<span class="oi oi-person" aria-hidden="true"></span> Log ud
+				</NavLink>
 			}
-
+			@if (admin != null)
+			{
+				<NavLink class="nav-link" href="/" @onclick="() => LogOut()">
+				//<span class="oi oi-person" aria-hidden="true"></span> Log ud
+				</NavLink>
+			}
 			else
 			{
 				<a class="button" href="signup">Sign up</a>

@@ -40,6 +40,9 @@ namespace BlazorHotelH2.Services
         {
             HttpClient customerClient = new HttpClient();
 
+			customerClient.DefaultRequestHeaders.Add("email", email);
+            customerClient.DefaultRequestHeaders.Add("password", password);
+
             HttpResponseMessage response = new HttpResponseMessage();
 
             Customer customer = new Customer();
@@ -48,7 +51,7 @@ namespace BlazorHotelH2.Services
 
             try
             {
-                response = await customerClient.GetAsync(customerApi);
+				response = await customerClient.GetAsync(customerApi);
                 if (!response.IsSuccessStatusCode)
                 {
                     return null;

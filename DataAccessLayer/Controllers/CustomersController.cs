@@ -48,7 +48,7 @@ namespace DataAccessLayer.Controllers
         }
 
 		// GET: api/Customers/5
-		[HttpGet("login/{email}/{password}")]
+		[HttpGet("{email}/{password}")]
 		public async Task<ActionResult<Customer>> GetCustomerEmail(string email, string password)
 		{
             var customer = await repoCustomer.GetCustomerAsync();

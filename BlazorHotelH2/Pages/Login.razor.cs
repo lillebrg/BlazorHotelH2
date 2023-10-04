@@ -5,12 +5,16 @@ using static System.Net.WebRequestMethods;
 using System.Text;
 using System.Net.Http.Json;
 using BlazorHotelH2.Shared.Utilities;
+using BlazorHotelH2.Services;
+using BlazorHotelH2.Containers;
 
 namespace BlazorHotelH2.Pages
 {
     public partial class Login
     {
-        public Customer customer = new Customer();
+		
+
+		public Customer customer = new Customer();
 		public string errorMessage;
 		public Customer? customeruser;
 		public Admin? adminuser;
@@ -23,16 +27,16 @@ namespace BlazorHotelH2.Pages
 			{
 				string email = customer.Email;
 				string password = customer.Password;
-
 				try
 				{
-					// Admin authentication failed; let's try customer authentication.
-					//customeruser = await Http.GetFromJsonAsync<Customer>($"https://localhost:7036/api/Customers/login/{email}/{password}");
+					CustomerService customerService = new CustomerService();
+					Customer validCustomer = new Customer();
+					await customerService.GetCustomerEmailAsync(email, password);
 
-					if (customeruser != null)
+					if (validCustomer != null)
 					{
-						GlobalUserAuth.UserId = customeruser.Id;
-
+						AccountSession session = new AccountSession();
+						session.SetCustomer(validCustomer);
 						StateHasChanged();
 						NavigationManager.NavigateTo("/");
 

@@ -15,5 +15,10 @@ namespace BlazorHotelH2.Shared
 			customer = session.GetCustomer();
 			StateHasChanged();
 		}
+
+		public void LogOut()
+		{
+			session.forgetaccount();
+		}
 	}	
 }
