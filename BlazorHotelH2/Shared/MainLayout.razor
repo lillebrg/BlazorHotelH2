@@ -15,16 +15,16 @@
         <div class="top-row px-4 header">
 			
 
-			@if (customer != null)
+			@if (session.CustomerSession != null)
 			{
 				<NavLink class="nav-link" href="/" @onclick="() => LogOut()">
-				<span class="oi oi-person" aria-hidden="true"></span> Log ud
+				<span class="oi oi-person" aria-hidden="true"></span> Log ud customer
 				</NavLink>
 			}
-			@if (admin != null)
+			@if (session.AdminSession != null)
 			{
 				<NavLink class="nav-link" href="/" @onclick="() => LogOut()">
-				//<span class="oi oi-person" aria-hidden="true"></span> Log ud
+				<span class="oi oi-person" aria-hidden="true"></span> Log ud admin
 				</NavLink>
 			}
 			else

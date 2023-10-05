@@ -40,8 +40,7 @@ namespace BlazorHotelH2.Services
         {
             HttpClient customerClient = new HttpClient();
 
-			customerClient.DefaultRequestHeaders.Add("email", email);
-            customerClient.DefaultRequestHeaders.Add("password", password);
+            customerApi = $"https://localhost:7036/api/Customers/{email}/{password}";
 
             HttpResponseMessage response = new HttpResponseMessage();
 

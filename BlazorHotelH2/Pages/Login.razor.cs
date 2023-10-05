@@ -27,31 +27,29 @@ namespace BlazorHotelH2.Pages
 			{
 				string email = customer.Email;
 				string password = customer.Password;
-				try
-				{
+
+
 					CustomerService customerService = new CustomerService();
 					Customer validCustomer = new Customer();
-					await customerService.GetCustomerEmailAsync(email, password);
+                    validCustomer = await customerService.GetCustomerEmailAsync(email, password);
 
 					if (validCustomer != null)
 					{
 						AccountSession session = new AccountSession();
-						session.SetCustomer(validCustomer);
-						StateHasChanged();
+						session.CustomerSession = validCustomer;
 						NavigationManager.NavigateTo("/");
-
-						return;
 					}
-				}
-				catch
-				{
-					errorMessage = "Invalid credentials. Please check your email and password.";
-				}
+					else
+					{
+						errorMessage = "Invalid credentials. Please check your email and password.";
+						StateHasChanged();
+					}
 			}
 			else
 			{
 				// Handle empty input
 				errorMessage = "Please enter your email and password.";
+				StateHasChanged();
 			}
 		}
 

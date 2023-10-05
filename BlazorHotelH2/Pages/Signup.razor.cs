@@ -25,7 +25,7 @@ namespace BlazorHotelH2.Pages
                 throw e;
             }
             AccountSession session = new AccountSession();
-            session.SetCustomer(customer);
+            session.CustomerSession = customer;
             isPopupVisible = true;
         }
     }
