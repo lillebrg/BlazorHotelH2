@@ -120,7 +120,7 @@ namespace DataAccessLayer.Controllers
         //}
 
         // GET: api/Customers/5
-        [HttpGet("login/{email}/{password}")]
+        [HttpGet("{email}/{password}")]
         public async Task<ActionResult<Admin>> GetAdminEmail(string email, string password)
         {
            var admin = await repoAdmin.GetAdminAsync();

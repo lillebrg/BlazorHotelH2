@@ -6,6 +6,7 @@ using System.Text;
 using System.Net.Http.Json;
 using BlazorHotelH2.Services;
 using BlazorHotelH2.Containers;
+using BlazorHotelH2.Shared;
 
 namespace BlazorHotelH2.Pages
 {

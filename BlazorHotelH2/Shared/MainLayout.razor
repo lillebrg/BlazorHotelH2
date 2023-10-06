@@ -6,9 +6,19 @@
 <PageTitle>Hotel H2</PageTitle>
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+	@if (AccountSession.AdminSession != null)
+	{
+		<div class="sidebar">
+			<NavMenuAdmin />
+		</div>
+	}
+	else
+	{
+		<div class="sidebar">
+			<NavMenu />
+		</div>
+	}
+	
 
     <main>
         <div class="top-row px-4 header">
@@ -17,20 +27,16 @@
 			@if (AccountSession.CustomerSession != null)
 			{
 				<h4 class="username">Hello @AccountSession.CustomerSession.UserName!</h4>
-				<NavLink class="nav-link" href="/" @onclick="() => LogOut()">
-				<span class="oi oi-person" aria-hidden="true"></span> Log ud
-				</NavLink>
+				<a class="button" @onclick="() => LogOut()"> Log out</a>
 			}
 			else if (AccountSession.AdminSession != null)
 			{
-				<h4>Hello @AccountSession.AdminSession.UserName!</h4>
-				<NavLink class="nav-link" href="/" @onclick="() => LogOut()">
-					<span class="oi oi-person" aria-hidden="true"></span> Log ud
-				</NavLink>
+				<h4 class="username">Hello @AccountSession.AdminSession.UserName!</h4>
+				<a class="button" @onclick="() => LogOut()"> Log out</a>
 			}
 			else
 			{
-				<a class="button" href="signup">Sign up</a>
+				<a class="button" href="signup"> Sign up</a>
 				<a class="button" href="login">Log in</a>
 			}
         </div>

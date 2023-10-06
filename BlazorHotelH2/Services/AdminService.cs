@@ -11,7 +11,10 @@ namespace BlazorHotelH2.Services
         {
             HttpClient adminClient = new HttpClient();
 
-            HttpResponseMessage response = new HttpResponseMessage();
+			adminApi = $"https://localhost:7036/api/Admins/{email}/{password}";
+
+
+			HttpResponseMessage response = new HttpResponseMessage();
 
             Admin admin = new Admin();
 
