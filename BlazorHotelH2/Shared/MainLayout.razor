@@ -1,7 +1,6 @@
 ﻿@inherits LayoutComponentBase
 @using Containers;
 @using DomainModels;
-@using BlazorHotelH2.Shared.Utilities
 @using BlazorHotelH2.Pages
 
 <PageTitle>Hotel H2</PageTitle>
@@ -15,24 +14,24 @@
         <div class="top-row px-4 header">
 			
 
-			@if (session.CustomerSession != null)
+			@if (AccountSession.CustomerSession != null)
 			{
+				<h4 class="username">Hello @AccountSession.CustomerSession.UserName!</h4>
 				<NavLink class="nav-link" href="/" @onclick="() => LogOut()">
-				<span class="oi oi-person" aria-hidden="true"></span> Log ud customer
+				<span class="oi oi-person" aria-hidden="true"></span> Log ud
 				</NavLink>
 			}
-			@if (session.AdminSession != null)
+			else if (AccountSession.AdminSession != null)
 			{
+				<h4>Hello @AccountSession.AdminSession.UserName!</h4>
 				<NavLink class="nav-link" href="/" @onclick="() => LogOut()">
-				<span class="oi oi-person" aria-hidden="true"></span> Log ud admin
+					<span class="oi oi-person" aria-hidden="true"></span> Log ud
 				</NavLink>
 			}
 			else
 			{
 				<a class="button" href="signup">Sign up</a>
-				<NavLink class="nav-link" href="login">
-					<span class="oi oi-person" aria-hidden="true"></span> Log ind
-				</NavLink>
+				<a class="button" href="login">Log in</a>
 			}
         </div>
 

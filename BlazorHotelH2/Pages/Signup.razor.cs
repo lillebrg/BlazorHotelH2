@@ -12,6 +12,7 @@ namespace BlazorHotelH2.Pages
         
         public Customer customer = new Customer();
         private bool isPopupVisible = false;
+        public string errormessage = "";
         public void SubmitForm()
         {
             CustomerService customerService = new CustomerService();
@@ -22,10 +23,9 @@ namespace BlazorHotelH2.Pages
             catch (Exception e)
             {
 
-                throw e;
+                errormessage = "An error has occured, Try again!";
             }
-            AccountSession session = new AccountSession();
-            session.CustomerSession = customer;
+            AccountSession.CustomerSession = customer;
             isPopupVisible = true;
         }
     }

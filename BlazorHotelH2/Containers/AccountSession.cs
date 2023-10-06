@@ -2,9 +2,9 @@
 
 namespace BlazorHotelH2.Containers
 {
-    public class AccountSession
+    public static class AccountSession
     {
-        public Admin AdminSession {  get; set; }
-        public Customer CustomerSession { get; set; }
+        public static Admin AdminSession {  get; set; }
+        public static Customer CustomerSession { get; set; }
     }
 }

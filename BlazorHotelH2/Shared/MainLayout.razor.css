@@ -135,6 +135,9 @@ main
     height: 56px;
     padding-right: 16px;
 }
+.username{
+    color: white;
+}
 
 footer {
     position: absolute;

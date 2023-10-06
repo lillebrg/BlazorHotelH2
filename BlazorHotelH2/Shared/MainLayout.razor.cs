@@ -6,23 +6,21 @@ namespace BlazorHotelH2.Shared
 {
 	public partial class MainLayout
 	{
-		AccountSession session = new AccountSession();
-
-		
 		protected override async Task OnAfterRenderAsync(bool firstRender)
 		{
 
-			if (session.CustomerSession != null && session.AdminSession != null)
+			if (AccountSession.CustomerSession != null || AccountSession.AdminSession != null)
 			{
 				StateHasChanged();
 			}
-			
+
 		}
 
 		public void LogOut()
 		{
-			session.CustomerSession = new Customer();
-			session.AdminSession = new Admin();
+			AccountSession.CustomerSession = null;
+			AccountSession.AdminSession = null;
+			StateHasChanged();
 		}
 	}	
 }
