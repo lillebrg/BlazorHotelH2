@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group crudInput">
                         <p class="inputText">Max People</p>
-                        <InputText class="inputwidth" type="number" id="editInputMaxPeople" name="editInputNumber" min="0" max="100" @bind-Value="MaxPeople"/>
+                        <InputText class="inputwidth" type="number" id="editInputMaxPeople" name="editInputNumber" min="0" max="100" @bind-Value="MaxPeople" />
                     </div>
                     <div class="form-group crudInput">
                         <p class="inputText">Price</p>
@@ -39,8 +39,8 @@
                     @for (int i = 0; i < Room.Pictures.Count; i++)
                     {
                         <div class="form-group crudInput">
-                            <p class="inputText">Picture @(i+1)</p>
-                            <InputText name="editInputPrice" id="@("editInputPrice"+i)" @bind-Value="Room.Pictures[i].PictureURL" />
+                            <p class="inputText">Picture @(Room.Pictures[i])</p>
+                            <input name="editInputPrice" id="@(" editInputPrice"+i)" @bind-value="Room.Pictures[i].PictureURL" />
                         </div>
                     }
                 </EditForm>

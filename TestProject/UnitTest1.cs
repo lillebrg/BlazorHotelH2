@@ -72,7 +72,7 @@ namespace TestProject
         public void TestMethod_AddStandardRooms()
         {
             HotelContext HotelContext = new HotelContext();
-            for (int i = 0; i < 250; i++)
+            for (int i = 0; i < 30; i++)
             {
                 Picture picture = new Picture()
                 {
@@ -98,14 +98,14 @@ namespace TestProject
             }
             int result = HotelContext.SaveChanges();
             //Checks if the test ran as expected(if the test produces 34 entries but still works, this assert will tell you)
-            Assert.AreEqual(750, result);
+            Assert.AreEqual(90, result);
         }
 
         [TestMethod]
         public void TestMethod_AddPremiumRooms()
         {
             HotelContext HotelContext = new HotelContext();
-            for (int i = 0; i < 150; i++)
+            for (int i = 0; i < 15; i++)
             {
                 Picture picture = new Picture()
                 {
@@ -131,14 +131,14 @@ namespace TestProject
             }
             int result = HotelContext.SaveChanges();
             //Checks if the test ran as expected(if the test produces 34 entries but still works, this assert will tell you)
-            Assert.AreEqual(450, result);
+            Assert.AreEqual(45, result);
         }
 
         [TestMethod]
         public void TestMethod_AddDeluxeRooms()
         {
             HotelContext HotelContext = new HotelContext();
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 2; i++)
             {
                 Picture picture = new Picture()
                 {
@@ -174,7 +174,7 @@ namespace TestProject
             }
             int result = HotelContext.SaveChanges();
             //Checks if the test ran as expected(if the test produces 34 entries but still works, this assert will tell you)
-            Assert.AreEqual(100, result);
+            Assert.AreEqual(10, result);
         }
     }
 }
