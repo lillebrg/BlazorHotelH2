@@ -1,0 +1,76 @@
+﻿@using DomainModels
+@inject Containers.RoomInfoStateContainer myStateContainer
+@page "/booking";
+
+<PageTitle>Hotel H2</PageTitle>
+
+<h1 class="PageTitle">Booking</h1>
+
+<a href="roomlist" class="button">Back</a>
+
+<br />
+
+<div class="container">
+    
+    @if (ChooseDate == true)
+    {
+        <div id="ChooseBooking">
+            <EditForm Model="@inputBooking">
+
+                <h2 style="width: 100%; padding: 10px; margin: 8px 0; color: white;">Room @inputBooking.Room.Id</h2>
+
+                <InputDate required min="@DateTime.Now.ToString("yyyy-MM-dd")" @bind-Value="inputBooking.StartDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputDate>
+
+                <InputDate required min="@DateTime.Now.ToString("yyyy-MM-dd")" @bind-Value="inputBooking.EndDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputDate>
+
+                <button @onclick="() => DatesChosen()">Next</button>
+
+                <p class="error-message" id="signup-error"></p>
+
+            </EditForm>
+        </div>
+    }
+    @if (ChooseAddress == true)
+    {
+        <div id="ChooseBooking">
+            <EditForm Model="@inputCustomer.Address">
+
+                <h2 style="width: 100%; padding: 10px; margin: 8px 0; color: white;">Address</h2>
+
+                <InputText required @bind-Value="inputCustomer.Address.Country" placeholder="Country" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputText>
+                <InputText required @bind-Value="inputCustomer.Address.address" placeholder="Street address" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputText>
+                <InputText required @bind-Value="zipcode" placeholder="Postal code" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputText>
+                <InputText required @bind-Value="inputCustomer.Address.City" placeholder="City" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputText>
+
+                <button @onclick="() => AddressChosen()">Next</button>
+
+                <p class="error-message" id="signup-error"></p>
+
+            </EditForm>
+        </div>
+    }
+    @if (ChooseCreditcard == true)
+    {
+        <div id="ChooseBooking">
+            <EditForm Model="@inputCustomer.CreditCardInfo">
+
+                <h2 style="width: 100%; padding: 10px; margin: 8px 0; color: white;">Payment</h2>
+
+                <InputText required @bind-Value="inputCustomer.CreditCardInfo.NameOnCard" placeholder="Name on card" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputText>
+                <InputText required @bind-Value="cardnumber" placeholder="Card number" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputText>
+                <InputDate required min="@DateTime.Now.ToString("yyyy-MM-dd")" @bind-Value="inputCustomer.CreditCardInfo.ExpirationDate" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;"></InputDate>
+                <button @onclick="() => CreditCardChosen()">Next</button>
+
+                <p class="error-message" id="signup-error"></p>
+
+            </EditForm>
+        </div>
+    }
+    
+
+</div>
+
+<br />
+<br />
+<br />
+

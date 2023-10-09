@@ -10,7 +10,9 @@
     </div>
 }
 
-@for (int i = 0; i < AllRooms.Count; i++)
-{
-    <RoomListComponent Room="@AllRooms[i]"/>
-}
+<div class="roomtable">
+    @for (int i = 0; i < AllRooms.Count; i++)
+    {
+        <RoomListComponent Room="@AllRooms[i]"/>
+    }
+</div>

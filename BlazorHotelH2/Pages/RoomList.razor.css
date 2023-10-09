@@ -1,4 +1,7 @@
-﻿#imgdiv{
+﻿.roomtable{
+    margin-bottom: 200px;
+}
+#imgdiv {
     display: flex;
     align-items: center;
     justify-content: center;
