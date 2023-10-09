@@ -13,10 +13,15 @@ namespace BlazorHotelH2.Pages
         {
             RoomInfoStateContainer.OnStateChange += StateHasChanged;
         }
-        private void HandleButton()
+        private void GoToDetails()
         {
             RoomInfoStateContainer.SetValue(Room);
             navigationManager.NavigateTo("/roominfo");
+        }
+        private void GoToBooking()
+        {
+            RoomInfoStateContainer.SetValue(Room);
+            navigationManager.NavigateTo("/booking");
         }
         public void Dispose()
         {
