@@ -1,4 +1,5 @@
-﻿using BlazorHotelH2.Services;
+﻿using BlazorHotelH2.Containers;
+using BlazorHotelH2.Services;
 using DomainModels;
 using System.Diagnostics.Contracts;
 
@@ -6,6 +7,8 @@ namespace BlazorHotelH2.Pages
 {
     public partial class Book
     {
+        BookingService bookingservice = new BookingService();
+        private bool isPopupVisible = false;
         public bool ChooseDate { get; set; } = true;
         public bool ChooseAddress { get; set; } = false;    
         public bool ChooseCreditcard { get; set; } = false;
@@ -20,7 +23,8 @@ namespace BlazorHotelH2.Pages
         {
             Room = new Room(),
             StartDate = DateTime.Now,
-            EndDate = DateTime.Now.AddDays(1)
+            EndDate = DateTime.Now.AddDays(1),
+            Customer = AccountSession.CustomerSession
         };
 
         protected override void OnInitialized()
@@ -39,26 +43,22 @@ namespace BlazorHotelH2.Pages
             ChooseAddress = false;
             ChooseCreditcard = true;
             inputCustomer.Address.ZipCode = Convert.ToInt32(zipcode);
+            inputCustomer.CreditCardInfo.ExpirationDate = DateTime.Now;
         }
         public void CreditCardChosen()
         {
             inputCustomer.CreditCardInfo.CardNumber = Convert.ToInt32(cardnumber);
-            Console.WriteLine("completed");
-        }
-        public void SubmitForm()
-        {
-            BookingService bookingService = new BookingService();
 
             try
             {
-                bookingService.PostBookingAsync(inputBooking);
+                bookingservice.PostBookingAsync(inputBooking);
             }
             catch (Exception e)
             {
 
-                throw e;
+                isPopupVisible = false;
             }
-            Console.WriteLine("done");
+            isPopupVisible = true;
         }
     }
 }

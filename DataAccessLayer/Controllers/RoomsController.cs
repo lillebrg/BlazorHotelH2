@@ -109,7 +109,10 @@ namespace DataAccessLayer.Controllers
             {
                 return NotFound();
             }
-            var room = await _context.Room.FindAsync(id);
+            var room = await _context.Room
+                .Include(r => r.Pictures)
+                .SingleOrDefaultAsync(i => i.Id == id);
+
             if (room == null)
             {
                 return NotFound();

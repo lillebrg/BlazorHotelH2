@@ -1,4 +1,7 @@
-﻿<AdminRoomEditComponent Room="@Room" @ref="Modal"></AdminRoomEditComponent>
+﻿<AdminRoomEditComponent Room="@Room" @ref="EditModal"></AdminRoomEditComponent>
+<AdminRoomDeleteComponent Room="@Room" @ref="DeleteModal"></AdminRoomDeleteComponent>
+
+
 <tr>
     <td>@Room.Id</td>
     <td>@Room.RoomType</td>
@@ -8,8 +11,8 @@
     </td>
     <td>@Room.Price</td>
     <td>
-        <button class="btn btn-primary editRoomBtn" @onclick="() => Modal.Open()">Edit</button>
+        <button class="btn btn-primary editRoomBtn" @onclick="() => EditModal.Open()">Edit</button>
         |
-        <button class="btn btn-danger deleteRoomBtn">Delete</button>
+        <button class="btn btn-danger deleteRoomBtn" @onclick="() => DeleteModal.Open()">Delete</button>
     </td>
 </tr>

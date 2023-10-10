@@ -16,23 +16,20 @@ namespace DataAccessLayer.Controllers
     {
         private readonly HotelContext _context;
 
-        public BookingsController(HotelContext context)
+        public BookingsController()
         {
-            _context = context;
+            _context = new HotelContext();
         }
 
         // GET: api/Bookings
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Booking>>> GetBookings()
         {
-            var bookingsWithRooms = await _context.Bookings
-                .Include(b => b.Room)
-                .ToListAsync();
-          if (bookingsWithRooms == null)
+          if (_context.Bookings == null)
           {
               return NotFound();
           }
-            return bookingsWithRooms;
+            return await _context.Bookings.ToListAsync();
         }
 
         // GET: api/Bookings/5

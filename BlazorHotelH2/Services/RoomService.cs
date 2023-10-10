@@ -1,6 +1,7 @@
 ﻿using BlazorHotelH2.Pages;
 using DomainModels;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace BlazorHotelH2.Services
 {
@@ -41,5 +42,29 @@ namespace BlazorHotelH2.Services
 
             return null;
         }
+        public async Task<bool> DeleteRoomAsync(Room room)
+        {
+            roomApi = $"https://localhost:7036/api/Rooms/{room.Id}";
+
+            HttpClient customerClient = new HttpClient();
+
+            HttpResponseMessage response = new HttpResponseMessage();
+
+
+            try
+            {
+                response = await customerClient.DeleteAsync(roomApi);
+
+                return response.IsSuccessStatusCode;
+            }
+
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
+
     }
 }

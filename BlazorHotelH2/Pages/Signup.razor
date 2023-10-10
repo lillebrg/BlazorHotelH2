@@ -12,7 +12,7 @@
 
         <InputText @bind-Value="customer.UserName" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Username" required/>
 
-        <InputText @bind-Value="customer.Password" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Password" required/>
+        <InputText type="password" @bind-Value="customer.Password" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Password" required/>
 
         <InputText @bind-Value="customer.Email" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;" placeholder="Email" required/>
 
@@ -32,7 +32,7 @@
 
     @if (isPopupVisible)
     {
-        <Popup />
+        <Popup popupText="Account Created!" />
     }
 </div>
 

@@ -115,6 +115,25 @@ namespace DataAccessLayer.Controllers
 
             return NoContent();
         }
+        // DELETE: api/Pictures/5
+        [HttpDelete("{roomid}")]
+        public async Task<IActionResult> DeletePictureforRoom(int roomid)
+        {
+            if (_context.Picture == null)
+            {
+                return NotFound();
+            }
+            var picture = await _context.Picture.FindAsync(roomid);
+            if (picture == null)
+            {
+                return NotFound();
+            }
+
+            _context.Picture.Remove(picture);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
 
         private bool PictureExists(int id)
         {

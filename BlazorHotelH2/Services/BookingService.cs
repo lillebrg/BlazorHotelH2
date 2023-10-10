@@ -44,7 +44,7 @@ namespace BlazorHotelH2.Services
         {
             string jsonData = JsonConvert.SerializeObject(booking);
 
-            HttpClient bookingSomething = new HttpClient();
+            HttpClient bookingClient = new HttpClient();
 
             HttpResponseMessage response = new HttpResponseMessage();
 
@@ -52,7 +52,7 @@ namespace BlazorHotelH2.Services
 
             try
             {
-                response = await bookingSomething.PostAsync(bookingApi, data);
+                response = await bookingClient.PostAsync(bookingApi, data);
 
                 return response.IsSuccessStatusCode;
             }

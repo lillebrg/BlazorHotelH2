@@ -1,0 +1,24 @@
+﻿<div class="modal @ModalClass" tabindex="-1" role="dialog" style="display:@ModalDisplay">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure you want to delete Room nr. @Room.Id ?</h5>
+            </div>
+            <div class="modal-body">
+                <p>@errormessage</p>
+                <button type="button" class="btn btn-primary" @onclick="() => DeleteRoom()">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="() => Close()">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@if (isPopupVisible)
+{
+    <Popup popupText="Room Deleted." />
+}
+@if (ShowBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}
