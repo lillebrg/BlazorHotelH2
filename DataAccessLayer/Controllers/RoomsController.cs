@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DataAccessLayer.Data;
 using DomainModels;
+using DataAccessLayer.BusinessLogic;
 
 namespace DataAccessLayer.Controllers
 {
@@ -14,45 +15,36 @@ namespace DataAccessLayer.Controllers
     [ApiController]
     public class RoomsController : ControllerBase
     {
-        private readonly HotelContext _context;
+        //seperation of concern
+        private readonly RepoRoom repoRoom;
 
         public RoomsController()
         {
-            _context = new HotelContext();
+            repoRoom = new RepoRoom();
         }
 
         // GET: api/Rooms
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Room>>> GetRoom()
         {
-            var roomsWithPictures = await _context.Room
-                .Include(r => r.Pictures)
-                .ToListAsync();
-
-            if (roomsWithPictures == null)
+            IEnumerable<Room> roomList = await repoRoom.GetRoomAsync();
+            if (roomList != null)
             {
-                return NotFound();
+                return Ok(roomList);
             }
-
-            return roomsWithPictures;
+            return NotFound();
         }
 
         // GET: api/Rooms/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Room>> GetRoom(int id)
         {
-          if (_context.Room == null)
-          {
-              return NotFound();
-          }
-            var room = await _context.Room.FindAsync(id);
-
-            if (room == null)
+            Room room = (Room)await repoRoom.GetRoomAsync(id);
+            if (room != null)
             {
-                return NotFound();
+                return Ok(room);
             }
-
-            return room;
+            return NotFound();
         }
 
         // PUT: api/Rooms/5
@@ -60,28 +52,7 @@ namespace DataAccessLayer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRoom(int id, Room room)
         {
-            if (id != room.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(room).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!RoomExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            room = await repoRoom.PutRoomAsync(id, room);
 
             return NoContent();
         }
@@ -91,42 +62,21 @@ namespace DataAccessLayer.Controllers
         [HttpPost]
         public async Task<ActionResult<Room>> PostRoom(Room room)
         {
-          if (_context.Room == null)
-          {
-              return Problem("Entity set 'HotelContext.Room'  is null.");
-          }
-            _context.Room.Add(room);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetRoom", new { id = room.Id }, room);
+            await repoRoom.PostRoomAsync(room);
+            return CreatedAtAction("GetCustomer", new { id = room.Id }, room);
         }
 
         // DELETE: api/Rooms/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRoom(int id)
         {
-            if (_context.Room == null)
+            if (await repoRoom.DeleteRoomAsync(id) == null)
             {
                 return NotFound();
             }
-            var room = await _context.Room
-                .Include(r => r.Pictures)
-                .SingleOrDefaultAsync(i => i.Id == id);
-
-            if (room == null)
-            {
-                return NotFound();
-            }
-
-            _context.Room.Remove(room);
-            await _context.SaveChangesAsync();
-
             return NoContent();
         }
 
-        private bool RoomExists(int id)
-        {
-            return (_context.Room?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+        
     }
 }

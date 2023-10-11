@@ -48,6 +48,9 @@ namespace BlazorHotelH2.Pages
         public void CreditCardChosen()
         {
             inputCustomer.CreditCardInfo.CardNumber = Convert.ToInt32(cardnumber);
+            AccountSession.CustomerSession.CreditCardInfo = inputCustomer.CreditCardInfo;
+            AccountSession.CustomerSession.Address = inputCustomer.Address;
+            inputBooking.Customer = AccountSession.CustomerSession;
 
             try
             {
